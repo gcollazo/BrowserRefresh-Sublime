@@ -1,5 +1,5 @@
 [  
     {  
-        "keys": ["command+shift+r"], "command": "browser_refresh"  
+        "keys": ["command+shift+c"], "command": "browser_refresh"  
     }  
 ]
