@@ -2,7 +2,7 @@
 
 After installing this plugin you can hit `command + shift + r` on any window in **Sublime Text 2** and you **Google Chrome** window will come to the foreground and reload the active tab.
 
-##Requrements
+##Requirements
 Currenty it only works on **Mac OS X** with **Google Chrome**. I don't really plan to extend it for now. If you want to make it better, please feel free to fork and request a pull.
 
 ##How to install
