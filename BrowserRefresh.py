@@ -3,7 +3,7 @@ from subprocess import call
 
 
 class BrowserRefreshCommand(sublime_plugin.TextCommand):
-    def run(self, view):
+    def run(self, args):
         if self.view and self.view.is_dirty():
             self.view.run_command("save")
         browser_command = """
