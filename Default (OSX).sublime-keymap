@@ -1,5 +1,7 @@
-[  
-    {  
-        "keys": ["command+shift+r"], "command": "browser_refresh"  
-    }  
+[
+    {
+        "keys": ["command+shift+r"], "command": "browser_refresh", "args": {
+            "activate_browser": true
+        }
+    }
 ]
