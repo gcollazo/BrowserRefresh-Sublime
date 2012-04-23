@@ -1,6 +1,10 @@
 #Browser Refresh for Sublime Text 2
 
-After installing this plugin you can hit `command + shift + r` on any window in **Sublime Text 2** and your **Google Chrome** window will come to the foreground and reload the active tab. If the current file is unsaved, it will be saved before Chrome is activated and reloaded.
+After installing this plugin you can hit `command + shift + r` on any window in **Sublime Text 2** and your **Google Chrome** window will come to the foreground *(optional)* and reload the active tab. If the current file is unsaved, it will be saved before Chrome is activated and reloaded.
+
+##Settings
+Now you can specify if you want the plugin to bring the browser to the foreground after the refresh. Just change the `activate_browser` setting on the **Default (OSX).sublime-keymap** file.
+
 
 ##Requirements
 Currenty it only works on **Mac OS X** with **Google Chrome**. I don't really plan to extend it for now. If you want to make it better, please feel free to fork and request a pull.
