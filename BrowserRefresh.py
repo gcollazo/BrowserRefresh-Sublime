@@ -3,15 +3,23 @@ from subprocess import call
 
 
 class BrowserRefreshCommand(sublime_plugin.TextCommand):
-    def run(self, args, activate_browser=True):
+    def run(self, args, activate_browser=True, browserName="Google Chrome"):
         if self.view and self.view.is_dirty():
             self.view.run_command("save")
+
+        # ApplicationIsRunnning from, http://vgable.com/blog/2009/04/24/how-to-check-if-an-application-is-running-with-applescript/
         browser_command = """
-        tell application "Google Chrome" to tell the active tab of its first window
-            reload
-        end tell
-        """
-        if activate_browser:
-            browser_command += '\ntell application "Google Chrome" to activate'
+        on ApplicationIsRunning(appName)
+            tell application "System Events" to set appNameIsRunning to exists (processes where name is appName)
+            return appNameIsRunning
+        end ApplicationIsRunning
+
+        if ApplicationIsRunning("%s")
+            tell application "%s" to activate
+            tell application "System Events"
+                keystroke "r" using {command down, shift down}
+            end tell
+        end if
+        """ % (browserName, browserName)
 
         call(['osascript', '-e', browser_command])
