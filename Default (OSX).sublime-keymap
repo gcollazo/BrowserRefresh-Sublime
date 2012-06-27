@@ -1,7 +1,8 @@
 [
     {
         "keys": ["command+shift+r"], "command": "browser_refresh", "args": {
-            "activate_browser": true
+            "activate_browser": true,
+            "browserName" : "Safari"
         }
     }
 ]
