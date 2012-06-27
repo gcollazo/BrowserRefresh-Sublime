@@ -17,8 +17,8 @@ class BrowserRefreshCommand(sublime_plugin.TextCommand):
         if ApplicationIsRunning("%s")
             tell application "%s" to activate
             tell application "System Events"
-                delay 0.5
-                keystroke "r" using {command down, shift down}
+                delay .5
+                keystroke "r" using {command down}
             end tell
         end if
         """ % (browserName, browserName)
