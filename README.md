@@ -25,7 +25,15 @@ All of the settings are in the **Default (OSX).sublime-keymap** file.
 Currently it only works on **Mac OS X** with **Google Chrome** and **Safari**. I don't really plan to extend it for now. If you want to make it better, please feel free to fork and request a pull.
 
 ## How to install
-Just clone this repo to your **Packages** folder.
+**With the Package Control plugin:** The easiest way to install BrowserRefresh is through Package Control, which can be found at [http://wbond.net/sublime_packages/package_control](http://wbond.net/sublime_packages/package_control)
+
+**Without Git:** Download the latest source from GitHub and copy the BrowserRefresh folder to your Sublime Text "Packages" directory.
+
+**With Git:** Clone the repository in your Sublime Text "Packages" directory:
+
+```
+git clone git@github.com:gcollazo/BrowserRefresh-Sublime.git
+```
 
 ## License
 All of Browser Refresh for Sublime Text 2 is licensed under the MIT license.
