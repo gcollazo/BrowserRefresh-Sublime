@@ -1,18 +1,33 @@
-#Browser Refresh for Sublime Text 2
+# Browser Refresh for Sublime Text 2
 
-After installing this plugin you can hit `command + shift + r` on any window in **Sublime Text 2** and your **Google Chrome** window will come to the foreground *(optional)* and reload the active tab. If the current file is unsaved, it will be saved before Chrome is activated and reloaded.
+After installing this plugin you can hit `command + shift + r` on any window in **Sublime Text 2** and your **Google Chrome** or **Safari** window will come to the foreground *(optional)* and reload the active tab. If the current file is unsaved, it will be saved before the browser is activated and reloaded.
 
-##Settings
-Now you can specify if you want the plugin to bring the browser to the foreground after the refresh. Just change the `activate_browser` setting on the **Default (OSX).sublime-keymap** file.
+## Settings
+All of the settings are in the **Default (OSX).sublime-keymap** file.
+
+```
+[
+    {
+        "keys": ["command+shift+r"], "command": "browser_refresh", "args": {
+            "activate_browser": true,
+            "browserName" : "Google Chrome"
+        }
+    }
+]
+```
+
+**`activate_browser`** - If set to `True` when you press the keys it will bring the browser to the foreground.
+
+**`browserName`** - Specify which browser to use. The default is `Google Chrome` but you can change it to `Safari`.
 
 
-##Requirements
-Currenty it only works on **Mac OS X** with **Google Chrome**. I don't really plan to extend it for now. If you want to make it better, please feel free to fork and request a pull.
+## Requirements
+Currently it only works on **Mac OS X** with **Google Chrome** and **Safari**. I don't really plan to extend it for now. If you want to make it better, please feel free to fork and request a pull.
 
-##How to install
+## How to install
 Just clone this repo to your **Packages** folder.
 
-##License
+## License
 All of Browser Refresh for Sublime Text 2 is licensed under the MIT license.
 
 Copyright (c) 2012 Giovanni Collazo
