@@ -3,15 +3,31 @@ from subprocess import call
 
 
 class BrowserRefreshCommand(sublime_plugin.TextCommand):
-    def run(self, args, activate_browser=True):
+    def run(self, args, activate_browser=True, browserName="Google Chrome"):
         if self.view and self.view.is_dirty():
             self.view.run_command("save")
-        browser_command = """
-        tell application "Google Chrome" to tell the active tab of its first window
-            reload
-        end tell
-        """
-        if activate_browser:
-            browser_command += '\ntell application "Google Chrome" to activate'
+        
+        activate = ""
+        if(activate_browser == True):
+            activate = "activate"
 
-        call(['osascript', '-e', browser_command])
+        if(browserName == "Google Chrome"):
+            command = """
+                tell application "Google Chrome"
+                    %s
+                    reload active tab of window 1
+                end tell
+            """ % (activate)
+
+        elif(browserName == "Safari"):
+            command = """
+                tell application "Safari"
+                    %s
+                    tell its first document
+                        set its URL to (get its URL)
+                    end tell
+                end tell
+            """ % (activate)
+
+        call(['osascript', '-e', command])
+
