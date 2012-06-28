@@ -16,9 +16,9 @@ All of the settings are in the **Default (OSX).sublime-keymap** file.
 ]
 ```
 
-**`activate_browser`** - If set to `True` when you press the keys it will bring the browser to the foreground.
+`activate_browser` - If set to `True` when you press the keys it will bring the browser to the foreground.
 
-**`browserName`** - Specify which browser to use. The default is `Google Chrome` but you can change it to `Safari`.
+`browserName` - Specify which browser to use. The default is `Google Chrome` but you can change it to `Safari`.
 
 
 ## Requirements
