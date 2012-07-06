@@ -5,7 +5,7 @@ After installing this plugin you can hit `command + shift + r` on any window in 
 ## Settings
 All of the settings are in the **Default (OSX).sublime-keymap** file.
 
-```
+```json
 [
     {
         "keys": ["command+shift+r"], "command": "browser_refresh", "args": {
