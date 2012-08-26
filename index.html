@@ -32,6 +32,28 @@
 
 <p>After installing this plugin you can hit <code>command + shift + r</code> on any window in <strong>Sublime Text 2</strong> and your <strong>Google Chrome</strong> or <strong>Safari</strong> window will come to the foreground <em>(optional)</em> and reload the active tab. If the current file is unsaved, it will be saved before the browser is activated and reloaded.</p>
 
+<h2>Settings</h2>
+
+<p>All of the settings are in the <strong>Default (OSX).sublime-keymap</strong> file.</p>
+
+<div class="highlight"><pre><span class="p">[</span>
+    <span class="p">{</span>
+        <span class="nt">"keys"</span><span class="p">:</span> <span class="p">[</span><span class="s2">"command+shift+r"</span><span class="p">],</span> <span class="nt">"command"</span><span class="p">:</span> <span class="s2">"browser_refresh"</span><span class="p">,</span> <span class="nt">"args"</span><span class="p">:</span> <span class="p">{</span>
+            <span class="nt">"activate_browser"</span><span class="p">:</span> <span class="kc">true</span><span class="p">,</span>
+            <span class="nt">"browserName"</span> <span class="p">:</span> <span class="s2">"Google Chrome"</span>
+        <span class="p">}</span>
+    <span class="p">}</span>
+<span class="p">]</span>
+</pre></div>
+
+<p><code>activate_browser</code> - If set to <code>True</code> when you press the keys it will bring the browser to the foreground.</p>
+
+<p><code>browserName</code> - Specify which browser to use. The default is <code>Google Chrome</code> but you can change it to <code>Safari</code>.</p>
+
+<h2>Requirements</h2>
+
+<p>Currently it only works on <strong>Mac OS X</strong> with <strong>Google Chrome</strong> and <strong>Safari</strong>. I don't really plan to extend it for now. If you want to make it better, please feel free to fork and request a pull.</p>
+
 <h2>How to install</h2>
 
 <p><strong>With the Package Control plugin:</strong> The easiest way to install BrowserRefresh is through Package Control, which can be found at <a href="http://wbond.net/sublime_packages/package_control">http://wbond.net/sublime_packages/package_control</a></p>
@@ -42,31 +64,6 @@
 
 <pre><code>git clone git@github.com:gcollazo/BrowserRefresh-Sublime.git
 </code></pre>
-
-<h2>Requirements</h2>
-
-<p>Currently it only works on <strong>Mac OS X</strong> with <strong>Google Chrome</strong> and <strong>Safari</strong>. I don't really plan to extend it for now. If you want to make it better, please feel free to fork and request a pull.</p>
-
-<h2>Settings</h2>
-
-<p>All of the settings are in the <strong>Default (OSX).sublime-keymap</strong> file.</p>
-
-<div class="highlight">
-<pre><span class="p">[</span>
-    <span class="p">{</span>
-        <span class="nt">"keys"</span><span class="p">:</span> <span class="p">[</span><span class="s2">"command+shift+r"</span><span class="p">],</span> <span class="nt">"command"</span><span class="p">:</span> <span class="s2">"browser_refresh"</span><span class="p">,</span> <span class="nt">"args"</span><span class="p">:</span> <span class="p">{</span>
-            <span class="nt">"activate_browser"</span><span class="p">:</span> <span class="kc">true</span><span class="p">,</span>
-            <span class="nt">"browserName"</span> <span class="p">:</span> <span class="s2">"Google Chrome"</span>
-        <span class="p">}</span>
-    <span class="p">}</span>
-<span class="p">]</span>
-</pre>
-</div>
-
-
-<p><code>activate_browser</code> - If set to <code>True</code> when you press the keys it will bring the browser to the foreground.</p>
-
-<p><code>browserName</code> - Specify which browser to use. The default is <code>Google Chrome</code> but you can change it to <code>Safari</code>.</p>
 
 <h2>License</h2>
 
