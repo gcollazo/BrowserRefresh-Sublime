@@ -58,7 +58,7 @@ class BrowserRefreshCommand(sublime_plugin.TextCommand):
                         set its URL to (get its URL)
                     end tell
                 end tell
-            """ % (activate, myFilename)
+            """ % (activate)
 
         call(['osascript', '-e', command])
 
