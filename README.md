@@ -1,6 +1,6 @@
 # Browser Refresh for Sublime Text 2
 
-After installing this plugin you can hit `command + shift + r` on any window in **Sublime Text 2** and your **Google Chrome** or **Safari** window will come to the foreground *(optional)* and reload the active tab. If the current file is unsaved, it will be saved before the browser is activated and reloaded.
+After installing this plugin you can hit `command + shift + r` on any window in **Sublime Text 2** and your **Google Chrome** or **Safari** window will come to the foreground *(optional)* and reload the tab with the saved file or open a new one if don't have any(for Safari, only reload the active tab for now). If the current file is unsaved, it will be saved before the browser is activated and reloaded.
 
 ## Settings
 All of the settings are in the **Default (OSX).sublime-keymap** file.
