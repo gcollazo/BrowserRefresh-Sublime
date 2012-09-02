@@ -8,7 +8,9 @@ All of the settings are in the **Default (OSX).sublime-keymap** file.
 ```json
 [
     {
-        "keys": ["command+shift+r"], "command": "browser_refresh", "args": {
+        "keys": ["super+shift+r"], 
+        "command": "browser_refresh", 
+        "args": {
             "activate_browser": true,
             "browserName" : "Google Chrome"
         }
@@ -25,14 +27,13 @@ All of the settings are in the **Default (OSX).sublime-keymap** file.
 Currently it only works on **Mac OS X** with **Google Chrome** and **Safari**. I don't really plan to extend it for now. If you want to make it better, please feel free to fork and request a pull.
 
 ## How to install
-**With the Package Control plugin:** The easiest way to install BrowserRefresh is through Package Control, which can be found at [http://wbond.net/sublime_packages/package_control](http://wbond.net/sublime_packages/package_control)
 
 **Without Git:** Download the latest source from GitHub and copy the BrowserRefresh folder to your Sublime Text "Packages" directory.
 
 **With Git:** Clone the repository in your Sublime Text "Packages" directory:
 
 ```
-git clone git@github.com:gcollazo/BrowserRefresh-Sublime.git
+git clone git@github.com:pumisake/BrowserRefresh-Sublime.git
 ```
 
 ## License
