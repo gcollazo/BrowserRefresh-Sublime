@@ -1,0 +1,41 @@
+[
+    {
+        "caption": "Preferences",
+        "mnemonic": "n",
+        "id": "preferences",
+        "children":
+        [
+            {
+                "caption": "Package Settings",
+                "mnemonic": "P",
+                "id": "package-settings",
+                "children":
+                [
+                    {
+                        "caption": "Browser Refresh",
+                        "children":
+                        [
+                            {
+                                "command": "open_file",
+                                "args": {
+                                    "file": "${packages}/Browser Refresh/Default (OSX).sublime-keymap",
+                                    "platform": "OSX"
+                                },
+                                "caption": "Key Bindings – Default"
+                            },
+                            {
+                                "command": "open_file",
+                                "args": {
+                                    "file": "${packages}/User/Default (OSX).sublime-keymap",
+                                    "platform": "OSX"
+                                },
+                                "caption": "Key Bindings – User"
+                            },
+                            { "caption": "-" }
+                        ]
+                    }
+                ]
+            }
+        ]
+    }
+]
