@@ -18,11 +18,11 @@ All of the settings are in the **Default (OSX).sublime-keymap** file.
 
 `activate_browser` - If set to `True` when you press the keys it will bring the browser to the foreground.
 
-`browserName` - Specify which browser to use. The default is `Google Chrome` but you can change it to `Safari` or `Firefox`.
+`browserName` - Specify which browser to use. The default is `Google Chrome` but you can change it to `Safari`,`Firefox` or `Opera`.
 
 
 ## Requirements
-Currently it only works on **Mac OS X** with **Google Chrome**, **Safari** and **Firefox**. I don't really plan to extend it for now. If you want to make it better, please feel free to fork and request a pull.
+Currently it only works on **Mac OS X** with **Google Chrome**, **Safari**, **Firefox** and **Opera**. I don't really plan to extend it for now. If you want to make it better, please feel free to fork and request a pull.
 
 ## How to install
 **With the Package Control plugin:** The easiest way to install BrowserRefresh is through Package Control, which can be found at [http://wbond.net/sublime_packages/package_control](http://wbond.net/sublime_packages/package_control)
