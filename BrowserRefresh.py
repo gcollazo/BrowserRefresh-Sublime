@@ -29,5 +29,13 @@ class BrowserRefreshCommand(sublime_plugin.TextCommand):
                 end tell
             """ % (activate)
 
+        elif(browserName == "Firefox"):
+            command = """
+                tell application "Firefox"
+                    %s
+                    tell application "System Events" to keystroke "r" using command down
+                end tell
+            """ % (activate)
+
         call(['osascript', '-e', command])
 
