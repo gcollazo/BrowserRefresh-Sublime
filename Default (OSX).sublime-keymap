@@ -1,8 +1,9 @@
 [
     {
         "keys": ["command+shift+r"], "command": "browser_refresh", "args": {
+            "auto_save": true,
             "activate_browser": true,
-            "browserName" : "Opera"
+            "browser_name" : "Google Chrome"
         }
     }
 ]
