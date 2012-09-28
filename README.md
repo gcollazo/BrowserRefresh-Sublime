@@ -1,6 +1,6 @@
 # Browser Refresh for Sublime Text 2
 
-After installing this plugin you can hit `command + shift + r` on any window in **Sublime Text 2** and your **Google Chrome** or **Safari** window will come to the foreground *(optional)* and reload the active tab. If the current file is unsaved, it will be saved before the browser is activated and reloaded.
+After installing this plugin you can hit `command + shift + r` on any window in **Sublime Text 2** and your **Google Chrome**, **Safari**, **Firefox** or **Opera** window will come to the foreground *(optional in Chrome and Safari)* and reload the active tab. If the current file is unsaved, it will be saved before the browser is activated and reloaded.
 
 ## Settings
 All of the settings are in the **Default (OSX).sublime-keymap** file.
@@ -9,16 +9,18 @@ All of the settings are in the **Default (OSX).sublime-keymap** file.
 [
     {
         "keys": ["command+shift+r"], "command": "browser_refresh", "args": {
+            "auto_save": true,
             "activate_browser": true,
-            "browserName" : "Google Chrome"
+            "browser_name" : "Google Chrome"
         }
     }
 ]
 ```
+`auto_save` - If se to `true` you current file in Sublime Text will be save before refreshing the browser window.
 
-`activate_browser` - If set to `True` when you press the keys it will bring the browser to the foreground.
+`activate_browser` - If set to `true` when you press the keys it will bring the browser to the foreground.
 
-`browserName` - Specify which browser to use. The default is `Google Chrome` but you can change it to `Safari`,`Firefox` or `Opera`.
+`browser_name` - Specify which browser to use. The default is `Google Chrome` but you can change it to `Safari`,`Firefox`, `Opera` or `all` which will try to refresh any of the above present in your system.
 
 
 ## Requirements
