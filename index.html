@@ -30,7 +30,7 @@
       <section>
         <h1>Browser Refresh for Sublime Text 2</h1>
 
-<p>After installing this plugin you can hit <code>command + shift + r</code> on any window in <strong>Sublime Text 2</strong> and your <strong>Google Chrome</strong> or <strong>Safari</strong> window will come to the foreground <em>(optional)</em> and reload the active tab. If the current file is unsaved, it will be saved before the browser is activated and reloaded.</p>
+<p>After installing this plugin you can hit <code>command + shift + r</code> on any window in <strong>Sublime Text 2</strong> and your <strong>Google Chrome</strong>, <strong>Safari</strong>, <strong>Firefox</strong> or <strong>Opera</strong> window will come to the foreground <em>(optional in Chrome and Safari)</em> and reload the active tab. If the current file is unsaved, it will be saved before the browser is activated and reloaded.</p>
 
 <h2>Settings</h2>
 
@@ -39,20 +39,23 @@
 <div class="highlight"><pre><span class="p">[</span>
     <span class="p">{</span>
         <span class="nt">"keys"</span><span class="p">:</span> <span class="p">[</span><span class="s2">"command+shift+r"</span><span class="p">],</span> <span class="nt">"command"</span><span class="p">:</span> <span class="s2">"browser_refresh"</span><span class="p">,</span> <span class="nt">"args"</span><span class="p">:</span> <span class="p">{</span>
+            <span class="nt">"auto_save"</span><span class="p">:</span> <span class="kc">true</span><span class="p">,</span>
             <span class="nt">"activate_browser"</span><span class="p">:</span> <span class="kc">true</span><span class="p">,</span>
-            <span class="nt">"browserName"</span> <span class="p">:</span> <span class="s2">"Google Chrome"</span>
+            <span class="nt">"browser_name"</span> <span class="p">:</span> <span class="s2">"Google Chrome"</span>
         <span class="p">}</span>
     <span class="p">}</span>
 <span class="p">]</span>
 </pre></div>
 
-<p><code>activate_browser</code> - If set to <code>True</code> when you press the keys it will bring the browser to the foreground.</p>
+<p><code>auto_save</code> - If se to <code>true</code> you current file in Sublime Text will be save before refreshing the browser window.</p>
 
-<p><code>browserName</code> - Specify which browser to use. The default is <code>Google Chrome</code> but you can change it to <code>Safari</code>.</p>
+<p><code>activate_browser</code> - If set to <code>true</code> when you press the keys it will bring the browser to the foreground.</p>
+
+<p><code>browser_name</code> - Specify which browser to use. The default is <code>Google Chrome</code> but you can change it to <code>Safari</code>,<code>Firefox</code>, <code>Opera</code> or <code>all</code> which will try to refresh any of the above present in your system.</p>
 
 <h2>Requirements</h2>
 
-<p>Currently it only works on <strong>Mac OS X</strong> with <strong>Google Chrome</strong> and <strong>Safari</strong>. I don't really plan to extend it for now. If you want to make it better, please feel free to fork and request a pull.</p>
+<p>Currently it only works on <strong>Mac OS X</strong> with <strong>Google Chrome</strong>, <strong>Safari</strong>, <strong>Firefox</strong> and <strong>Opera</strong>. I don't really plan to extend it for now. If you want to make it better, please feel free to fork and request a pull.</p>
 
 <h2>How to install</h2>
 
