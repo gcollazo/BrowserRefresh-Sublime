@@ -3,13 +3,23 @@ from subprocess import call
 
 
 class BrowserRefreshCommand(sublime_plugin.TextCommand):
-    def run(self, args, activate_browser=True, browser_name="Google Chrome", auto_save=True):
+    def run(self, args, activate_browser=True,
+        browser_name="Google Chrome", auto_save=True,
+        delay=None):
+
+        # Auto-save
         if auto_save == True and self.view and self.view.is_dirty():
             self.view.run_command("save")
 
+        # Activate browser
         self.activate = ""
         if activate_browser == True:
             self.activate = "activate"
+
+        # Delay refresh
+        if delay is not None:
+            import time
+            time.sleep(delay)
 
         if browser_name == "Google Chrome":
             self._chrome()
