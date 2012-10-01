@@ -34,12 +34,13 @@
 
 <h2>Settings</h2>
 
-<p>All of the settings are in the <strong>Default (OSX).sublime-keymap</strong> file.</p>
+<p>To edit settings go to <code>Preferences &gt; Package Settings &gt; Browser Refresh</code></p>
 
 <div class="highlight"><pre><span class="p">[</span>
     <span class="p">{</span>
         <span class="nt">"keys"</span><span class="p">:</span> <span class="p">[</span><span class="s2">"command+shift+r"</span><span class="p">],</span> <span class="nt">"command"</span><span class="p">:</span> <span class="s2">"browser_refresh"</span><span class="p">,</span> <span class="nt">"args"</span><span class="p">:</span> <span class="p">{</span>
             <span class="nt">"auto_save"</span><span class="p">:</span> <span class="kc">true</span><span class="p">,</span>
+            <span class="nt">"delay"</span><span class="p">:</span> <span class="mf">0.5</span><span class="p">,</span>
             <span class="nt">"activate_browser"</span><span class="p">:</span> <span class="kc">true</span><span class="p">,</span>
             <span class="nt">"browser_name"</span> <span class="p">:</span> <span class="s2">"Google Chrome"</span>
         <span class="p">}</span>
@@ -48,6 +49,8 @@
 </pre></div>
 
 <p><code>auto_save</code> - If se to <code>true</code> you current file in Sublime Text will be save before refreshing the browser window.</p>
+
+<p><code>delay</code> - Adds a delay (in seconds) before triggering the refresh. Seems to be useful if you are using a CSS or JavaScript pre-processor. The default is 0.0 seconds. </p>
 
 <p><code>activate_browser</code> - If set to <code>true</code> when you press the keys it will bring the browser to the foreground.</p>
 
