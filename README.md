@@ -3,13 +3,14 @@
 After installing this plugin you can hit `command + shift + r` on any window in **Sublime Text 2** and your **Google Chrome**, **Safari**, **Firefox** or **Opera** window will come to the foreground *(optional in Chrome and Safari)* and reload the active tab. If the current file is unsaved, it will be saved before the browser is activated and reloaded.
 
 ## Settings
-All of the settings are in the **Default (OSX).sublime-keymap** file.
+To edit settings go to `Preferences > Package Settings > Browser Refresh`
 
 ```json
 [
     {
         "keys": ["command+shift+r"], "command": "browser_refresh", "args": {
             "auto_save": true,
+            "delay": 0.5,
             "activate_browser": true,
             "browser_name" : "Google Chrome"
         }
@@ -17,6 +18,8 @@ All of the settings are in the **Default (OSX).sublime-keymap** file.
 ]
 ```
 `auto_save` - If se to `true` you current file in Sublime Text will be save before refreshing the browser window.
+
+`delay` - Adds a delay (in seconds) before triggering the refresh. Seems to be useful if you are using a CSS or JavaScript pre-processor. The default is 0.0 seconds. 
 
 `activate_browser` - If set to `true` when you press the keys it will bring the browser to the foreground.
 
