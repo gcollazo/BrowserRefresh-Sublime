@@ -3,7 +3,8 @@ from subprocess import call
 
 class MacBrowserRefresh:
     def __init__(self, activate_browser):
-        self.activate = activate_browser
+        if activate_browser == True:
+            self.activate = 'activate'
 
     def chrome(self):
         command = """

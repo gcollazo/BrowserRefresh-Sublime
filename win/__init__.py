@@ -5,7 +5,7 @@ from pywinauto.findwindows import WindowNotFoundError
 class WinBrowserRefresh:
     def __init__(self, activate_browser):
         # For now we ignore the activate option
-        # I don't know how to implement it :\
+        # we need to find out how to implement
         self.activate = activate_browser
 
     def chrome(self):
