@@ -1,5 +1,7 @@
+import sublime
 import sublime_plugin
-from subprocess import call
+import platform
+from utils import import_module
 
 
 class BrowserRefreshCommand(sublime_plugin.TextCommand):
@@ -11,75 +13,45 @@ class BrowserRefreshCommand(sublime_plugin.TextCommand):
         if auto_save == True and self.view and self.view.is_dirty():
             self.view.run_command("save")
 
-        # Activate browser
-        self.activate = ""
-        if activate_browser == True:
-            self.activate = "activate"
+        # Cache Platform
+        self.platform = platform.system()
+
+        # Detect OS and import Module
+        if self.platform == 'Darwin':
+            mod = import_module('mac')
+            refresher = mod.MacBrowserRefresh(activate_browser)
+        elif self.platform == 'Windows':
+            mod = import_module('windows')
+            refresher = mod.WinBrowserRefresh(activate_browser)
+        else:
+            sublime.error_message('Your operating system is not supported')
 
         # Delay refresh
         if delay is not None:
             import time
             time.sleep(delay)
 
+        # Actually refresh browsers
         if browser_name == "Google Chrome":
-            self._chrome()
+            refresher.chrome()
 
         elif browser_name == "Safari":
-            self._safari()
+            refresher.safari()
 
         elif browser_name == "Firefox":
-            self._firefox()
+            refresher.firefox()
 
         elif browser_name == "Opera":
-            self._opera()
+            refresher.opera()
+
+        elif browser_name == 'IE' and self.platform == 'Windows':
+            refresher.ie()
 
         elif browser_name == 'all':
-            self._chrome()
-            self._safari()
-            self._firefox()
-            self._opera()
+            refresher.chrome()
+            refresher.safari()
+            refresher.firefox()
+            refresher.opera()
 
-    def _chrome(self):
-        command = """
-            tell application "Google Chrome"
-                %s
-                reload active tab of window 1
-            end tell
-        """ % (self.activate)
-
-        self._call_applescript(command)
-
-    def _safari(self):
-        command = """
-            tell application "Safari"
-                %s
-                tell its first document
-                    set its URL to (get its URL)
-                end tell
-            end tell
-        """ % (self.activate)
-
-        self._call_applescript(command)
-
-    def _firefox(self):
-        command = """
-            tell application "Firefox"
-                activate
-                tell application "System Events" to keystroke "r" using command down
-            end tell
-        """
-
-        self._call_applescript(command)
-
-    def _opera(self):
-        command = """
-            tell application "Opera"
-                activate
-                tell application "System Events" to keystroke "r" using command down
-            end tell
-        """
-
-        self._call_applescript(command)
-
-    def _call_applescript(self, command):
-        call(['osascript', '-e', command])
+            if self.platform == 'Windows':
+                refresher.ie()
