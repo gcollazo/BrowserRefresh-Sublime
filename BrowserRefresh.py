@@ -22,7 +22,7 @@ _os = platform.system()
 
 class BrowserRefreshCommand(sublime_plugin.TextCommand):
     def run(self, args, activate_browser=True,
-        browser_name="Google Chrome", auto_save=True,
+        browser_name="all", auto_save=True,
         delay=None):
 
         # Auto-save

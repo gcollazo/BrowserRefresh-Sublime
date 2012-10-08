@@ -1,4 +1,7 @@
 from subprocess import call
+from utils import running_browsers
+
+browsers = running_browsers()
 
 
 class MacBrowserRefresh:
@@ -9,24 +12,26 @@ class MacBrowserRefresh:
     def chrome(self):
         command = """
             tell application "Google Chrome"
-                %s
+                {activate}
                 reload active tab of window 1
             end tell
-        """ % (self.activate)
+            """.format(activate=self.activate)
 
-        self._call_applescript(command)
+        if 'chrome' in browsers:
+            self._call_applescript(command)
 
     def safari(self):
         command = """
             tell application "Safari"
-                %s
+                activate
                 tell its first document
                     set its URL to (get its URL)
                 end tell
             end tell
-        """ % (self.activate)
+            """.format(activate=self.activate)
 
-        self._call_applescript(command)
+        if 'safari' in browsers:
+            self._call_applescript(command)
 
     def firefox(self):
         command = """
@@ -34,9 +39,10 @@ class MacBrowserRefresh:
                 activate
                 tell application "System Events" to keystroke "r" using command down
             end tell
-        """
+            """
 
-        self._call_applescript(command)
+        if 'firefox' in browsers:
+            self._call_applescript(command)
 
     def opera(self):
         command = """
@@ -44,9 +50,10 @@ class MacBrowserRefresh:
                 activate
                 tell application "System Events" to keystroke "r" using command down
             end tell
-        """
+            """
 
-        self._call_applescript(command)
+        if 'opera' in browsers:
+            self._call_applescript(command)
 
     def _call_applescript(self, command):
         call(['osascript', '-e', command])
