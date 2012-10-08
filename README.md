@@ -1,6 +1,6 @@
 # Browser Refresh for Sublime Text 2
 
-After installing this plugin you can hit `command + shift + r` on any window in **Sublime Text 2** and your **Google Chrome**, **Safari**, **Firefox** or **Opera** window will come to the foreground *(optional in Chrome and Safari)* and reload the active tab. If the current file is unsaved, it will be saved before the browser is activated and reloaded.
+After installing this plugin you can hit `command + shift + r` on Mac OS X or `ctrl + shift + r` on Windows while using  **Sublime Text 2** and your **Google Chrome**, **Safari**, **Firefox** or **Opera** window will come to the foreground *(optional in Chrome and Safari)* and reload the active tab. If the current file is unsaved, it will be saved before the browser is activated and reloaded.
 
 ## Settings
 To edit settings go to `Preferences > Package Settings > Browser Refresh`
@@ -27,7 +27,7 @@ To edit settings go to `Preferences > Package Settings > Browser Refresh`
 
 
 ## Requirements
-Currently it only works on **Mac OS X** with **Google Chrome**, **Safari**, **Firefox** and **Opera**. I don't really plan to extend it for now. If you want to make it better, please feel free to fork and request a pull.
+Currently it only works on **Mac OS X** and **Windows 7** with **Google Chrome**, **Safari**, **Firefox** and **Opera**. I don't really plan to extend it for now. If you want to make it better, please feel free to fork and request a pull.
 
 ## How to install
 **With the Package Control plugin:** The easiest way to install BrowserRefresh is through Package Control, which can be found at [http://wbond.net/sublime_packages/package_control](http://wbond.net/sublime_packages/package_control)
