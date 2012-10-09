@@ -37,7 +37,7 @@ Currently it only works on **Mac OS X** and **Windows 7** with **Google Chrome**
 **With Git:** Clone the repository in your Sublime Text "Packages" directory:
 
 ```
-git clone git@github.com:gcollazo/BrowserRefresh-Sublime.git
+git clone https://github.com/gcollazo/BrowserRefresh-Sublime.git
 ```
 
 ## License
