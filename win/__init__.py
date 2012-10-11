@@ -26,6 +26,17 @@ class WinBrowserRefresh:
         except WindowNotFoundError:
             pass
 
+    def iron(self):
+        try:
+            app = Application()
+            app.connect_(title_re='.*- Iron')
+            iron = app.window_(title_re='.*- Iron')
+            iron.TypeKeys('{F5}')
+            if self.is64bit:
+                self.TypeKeys64()
+        except WindowNotFoundError:
+            pass
+
     def safari(self):
         try:
             app = Application()
