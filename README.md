@@ -17,7 +17,7 @@ To edit settings go to `Preferences > Package Settings > Browser Refresh`
     }
 ]
 ```
-`auto_save` - If se to `true` you current file in Sublime Text will be save before refreshing the browser window.
+`auto_save` - If set to `true` you current file in Sublime Text will be save before refreshing the browser window.
 
 `delay` - Adds a delay (in seconds) before triggering the refresh. Seems to be useful if you are using a CSS or JavaScript pre-processor. The default is 0.0 seconds. 
 
