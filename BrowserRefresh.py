@@ -48,6 +48,9 @@ class BrowserRefreshCommand(sublime_plugin.TextCommand):
         if browser_name == "Google Chrome":
             refresher.chrome()
 
+        elif browser_name == "Google Chrome Canary":
+            refresher.canary()
+
         elif browser_name == "Safari":
             refresher.safari()
 
