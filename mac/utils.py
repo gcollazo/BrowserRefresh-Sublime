@@ -9,6 +9,9 @@ def running_browsers():
     if re.search(r'Google Chrome\.app\/Contents\/MacOS\/Google Chrome', ps) is not None:
         running_browsers.append('chrome')
 
+    if re.search(r'Google Chrome Canary\.app\/Contents\/MacOS\/Google Chrome Canary', ps) is not None:
+        running_browsers.append('canary')
+
     if re.search(r'Firefox\.app', ps) is not None:
         running_browsers.append('firefox')
 

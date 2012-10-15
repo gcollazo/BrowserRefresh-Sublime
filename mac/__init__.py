@@ -11,16 +11,25 @@ class MacBrowserRefresh:
         else:
             self.activate = ''
 
-    def chrome(self):
-        command = """
-            tell application "Google Chrome"
+        self._chrome_applescript = """
+            tell application "{name}"
                 {activate}
                 reload active tab of window 1
             end tell
-            """.format(activate=self.activate)
+            """
 
-        if 'chrome' in browsers:
+    def _chrome(self, app_name, browser_name):
+        command = self._chrome_applescript.format(
+            name=app_name, activate=self.activate)
+
+        if browser_name in browsers:
             self._call_applescript(command)
+
+    def chrome(self):
+        self._chrome("Google Chrome", "chrome")
+
+    def canary(self):
+        self._chrome("Google Chrome Canary", "canary")
 
     def safari(self):
         command = """
