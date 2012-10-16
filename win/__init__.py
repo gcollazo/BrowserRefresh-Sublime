@@ -8,6 +8,7 @@ if platform.architecture()[0] == '64bit':
     import time
     user32 = ctypes.windll.user32
 
+
 class WinBrowserRefresh:
     def __init__(self, activate_browser):
         # For now we ignore the activate option
@@ -20,6 +21,17 @@ class WinBrowserRefresh:
             app = Application()
             app.connect_(title_re='.*- Google Chrome')
             chrome = app.window_(title_re='.*- Google Chrome')
+            chrome.TypeKeys('{F5}')
+            if self.is64bit:
+                self.TypeKeys64()
+        except WindowNotFoundError:
+            pass
+
+    def canary(self):
+        try:
+            app = Application()
+            app.connect_(title_re='.*- Google Chrome Canary')
+            chrome = app.window_(title_re='.*- Google Chrome Canary')
             chrome.TypeKeys('{F5}')
             if self.is64bit:
                 self.TypeKeys64()
@@ -40,7 +52,7 @@ class WinBrowserRefresh:
     def safari(self):
         try:
             app = Application()
-            app.connect_(path=r'C:\Program Files\Safari\Safari.exe') 
+            app.connect_(path=r'C:\Program Files\Safari\Safari.exe')
             ie = app.top_window_()
             ie.TypeKeys('{F5}')
             if self.is64bit:
@@ -97,8 +109,8 @@ class WinBrowserRefresh:
 
     def TypeKeys64(self):
         # This hack is only necessary when running SublimeText2 64bit.
-        # The other method works fine on SublimeText2 32bit, 
-        # even when running 64bit Windows. 
+        # The other method works fine on SublimeText2 32bit,
+        # even when running 64bit Windows.
         time.sleep(1)
-        user32.keybd_event(0x74,0,2,0)  #2 is the code for KEYDOWN
-        user32.keybd_event(0x74,0,0,0)  #0 is the code for KEYUP
+        user32.keybd_event(0x74, 0, 2, 0)  # 2 is the code for KEYDOWN
+        user32.keybd_event(0x74, 0, 0, 0)  # 0 is the code for KEYUP
