@@ -8,6 +8,8 @@ class MacBrowserRefresh:
     def __init__(self, activate_browser):
         if activate_browser == True:
             self.activate = 'activate'
+        else:
+            self.activate = ''
 
     def chrome(self):
         command = """
