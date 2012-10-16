@@ -30,7 +30,7 @@
       <section>
         <h1>Browser Refresh for Sublime Text 2</h1>
 
-<p>After installing this plugin you can hit <code>command + shift + r</code> on Mac OS X or <code>ctrl + shift + r</code> on Windows while using  <strong>Sublime Text 2</strong> and your <strong>Google Chrome</strong>, <strong>Safari</strong>, <strong>Firefox</strong> or <strong>Opera</strong> window will come to the foreground <em>(optional in Chrome and Safari)</em> and reload the active tab. If the current file is unsaved, it will be saved before the browser is activated and reloaded.</p>
+<p>After installing this plugin you can hit <code>command + shift + r</code> on Mac OS X or <code>ctrl + shift + r</code> on Windows while using your favorite browser, the last active window will come to the foreground <em>(optional in Chrome, Canary and Safari on Mac)</em> and reload the active tab. If the current file is unsaved, it will be saved before the browser is activated and reloaded.</p>
 
 <h2>Settings</h2>
 
@@ -48,21 +48,27 @@
 <span class="p">]</span>
 </pre></div>
 
-<p><code>auto_save</code> - If set to <code>true</code> you current file in Sublime Text will be save before refreshing the browser window.</p>
+<p><strong>auto_save</strong> - If set to <code>true</code> you current file in Sublime Text will be save before refreshing the browser window.</p>
 
-<p><code>delay</code> - Adds a delay (in seconds) before triggering the refresh. Seems to be useful if you are using a CSS or JavaScript pre-processor. The default is 0.0 seconds. </p>
+<p><strong>delay</strong> - Adds a delay (in seconds) before triggering the refresh. Seems to be useful if you are using a CSS or JavaScript pre-processor. The default is 0.0 seconds. </p>
 
-<p><code>activate_browser</code> - If set to <code>true</code> when you press the keys it will bring the browser to the foreground.</p>
+<p><strong>activate_browser</strong> - If set to <code>true</code> when you press the keys it will bring the browser to the foreground.</p>
 
-<p><code>browser_name</code> - Specify which browser to use. The default is <code>Google Chrome</code> but you can change it to <code>Safari</code>,<code>Firefox</code>, <code>Opera</code> or <code>all</code> which will try to refresh any of the above present in your system.</p>
+<p><strong>browser_name</strong> - Specify which browser to use. The default is <code>Google Chrome</code> but you can change it to <code>Google Chrome Canary</code>, <code>Safari</code>,<code>Firefox</code>, <code>Opera</code>, <code>IE</code>, <code>Iron</code> or <code>all</code> which will try to refresh any of the above present in your system.</p>
 
-<h2>Requirements</h2>
+<h2>Supported Browsers</h2>
 
-<p>Currently it only works on <strong>Mac OS X</strong> and <strong>Windows 7</strong> with <strong>Google Chrome</strong>, <strong>Safari</strong>, <strong>Firefox</strong> and <strong>Opera</strong>. I don't really plan to extend it for now. If you want to make it better, please feel free to fork and request a pull.</p>
+<ul>
+<li>Google Chrome (Mac, Win)</li>
+<li>Google Chrome Canary (Mac)</li>
+<li>Safari (Mac, Win)</li>
+<li>Firefox (Mac, Win)</li>
+<li>Opera (Mac, Win)</li>
+<li>Internet Explorer (Win)</li>
+<li>SRWare Iron (Win)</li>
+</ul><h2>How to install</h2>
 
-<h2>How to install</h2>
-
-<p><strong>With the Package Control plugin:</strong> The easiest way to install BrowserRefresh is through Package Control, which can be found at <a href="http://wbond.net/sublime_packages/package_control">http://wbond.net/sublime_packages/package_control</a></p>
+<p><strong>With the Package Control plugin:</strong> The easiest way to install <strong>Browser Refresh</strong> is through Package Control, which can be found at <a href="http://wbond.net/sublime_packages/package_control">http://wbond.net/sublime_packages/package_control</a></p>
 
 <p><strong>Without Git:</strong> Download the latest source from GitHub and copy the BrowserRefresh folder to your Sublime Text "Packages" directory.</p>
 
@@ -70,6 +76,10 @@
 
 <pre><code>git clone https://github.com/gcollazo/BrowserRefresh-Sublime.git
 </code></pre>
+
+<h2>Contributions</h2>
+
+<p>If you have the time to make this plugin better feel free to fork and submit a pull request. Good pull request will be published to Package Manager within 24hrs.</p>
 
 <h2>License</h2>
 
