@@ -1,6 +1,6 @@
 # Browser Refresh for Sublime Text 2
 
-After installing this plugin you can hit `command + shift + r` on Mac OS X or `ctrl + shift + r` on Windows while using  **Sublime Text 2** and your **Google Chrome**, **Safari**, **Firefox** or **Opera** window will come to the foreground *(optional in Chrome and Safari)* and reload the active tab. If the current file is unsaved, it will be saved before the browser is activated and reloaded.
+After installing this plugin you can hit `command + shift + r` on Mac OS X or `ctrl + shift + r` on Windows while using  **Sublime Text 2** and your **Google Chrome**, **Google Chrome Canary**, **Safari**, **Firefox** or **Opera** window will come to the foreground *(optional in Chrome, Canary and Safari on Mac)* and reload the active tab. If the current file is unsaved, it will be saved before the browser is activated and reloaded.
 
 ## Settings
 To edit settings go to `Preferences > Package Settings > Browser Refresh`
@@ -23,11 +23,11 @@ To edit settings go to `Preferences > Package Settings > Browser Refresh`
 
 `activate_browser` - If set to `true` when you press the keys it will bring the browser to the foreground.
 
-`browser_name` - Specify which browser to use. The default is `Google Chrome` but you can change it to `Safari`,`Firefox`, `Opera` or `all` which will try to refresh any of the above present in your system.
+`browser_name` - Specify which browser to use. The default is `Google Chrome` but you can change it to `Google Chrome Canary`, `Safari`,`Firefox`, `Opera` or `all` which will try to refresh any of the above present in your system.
 
 
 ## Requirements
-Currently it only works on **Mac OS X** and **Windows 7** with **Google Chrome**, **Safari**, **Firefox** and **Opera**. I don't really plan to extend it for now. If you want to make it better, please feel free to fork and request a pull.
+Currently it only works on **Mac OS X** and **Windows 7** with **Google Chrome**, **Google Chrome Canary**, **Safari**, **Firefox** and **Opera**. I don't really plan to extend it for now. If you want to make it better, please feel free to fork and request a pull.
 
 ## How to install
 **With the Package Control plugin:** The easiest way to install BrowserRefresh is through Package Control, which can be found at [http://wbond.net/sublime_packages/package_control](http://wbond.net/sublime_packages/package_control)
