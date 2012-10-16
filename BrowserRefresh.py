@@ -68,6 +68,7 @@ class BrowserRefreshCommand(sublime_plugin.TextCommand):
 
         elif browser_name == 'all':
             refresher.chrome()
+            refresher.canary()
             refresher.safari()
             refresher.firefox()
             refresher.opera()
@@ -75,4 +76,3 @@ class BrowserRefreshCommand(sublime_plugin.TextCommand):
             if _os == 'Windows':
                 refresher.ie()
                 refresher.iron()
-
