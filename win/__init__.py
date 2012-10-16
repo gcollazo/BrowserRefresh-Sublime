@@ -27,17 +27,6 @@ class WinBrowserRefresh:
         except WindowNotFoundError:
             pass
 
-    def canary(self):
-        try:
-            app = Application()
-            app.connect_(title_re='.*- Google Chrome Canary')
-            chrome = app.window_(title_re='.*- Google Chrome Canary')
-            chrome.TypeKeys('{F5}')
-            if self.is64bit:
-                self.TypeKeys64()
-        except WindowNotFoundError:
-            pass
-
     def iron(self):
         try:
             app = Application()
