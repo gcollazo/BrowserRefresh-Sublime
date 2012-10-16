@@ -1,6 +1,6 @@
 # Browser Refresh for Sublime Text 2
 
-After installing this plugin you can hit `command + shift + r` on Mac OS X or `ctrl + shift + r` on Windows while using  **Sublime Text 2** and your **Google Chrome**, **Google Chrome Canary**, **Safari**, **Firefox** or **Opera** window will come to the foreground *(optional in Chrome, Canary and Safari on Mac)* and reload the active tab. If the current file is unsaved, it will be saved before the browser is activated and reloaded.
+After installing this plugin you can hit `command + shift + r` on Mac OS X or `ctrl + shift + r` on Windows while using your favorite browser, the last active window will come to the foreground *(optional in Chrome, Canary and Safari on Mac)* and reload the active tab. If the current file is unsaved, it will be saved before the browser is activated and reloaded.
 
 ## Settings
 To edit settings go to `Preferences > Package Settings > Browser Refresh`
@@ -17,20 +17,26 @@ To edit settings go to `Preferences > Package Settings > Browser Refresh`
     }
 ]
 ```
-`auto_save` - If set to `true` you current file in Sublime Text will be save before refreshing the browser window.
 
-`delay` - Adds a delay (in seconds) before triggering the refresh. Seems to be useful if you are using a CSS or JavaScript pre-processor. The default is 0.0 seconds. 
+**auto_save** - If set to `true` you current file in Sublime Text will be save before refreshing the browser window.
 
-`activate_browser` - If set to `true` when you press the keys it will bring the browser to the foreground.
+**delay** - Adds a delay (in seconds) before triggering the refresh. Seems to be useful if you are using a CSS or JavaScript pre-processor. The default is 0.0 seconds. 
 
-`browser_name` - Specify which browser to use. The default is `Google Chrome` but you can change it to `Google Chrome Canary`, `Safari`,`Firefox`, `Opera` or `all` which will try to refresh any of the above present in your system.
+**activate_browser** - If set to `true` when you press the keys it will bring the browser to the foreground.
 
+**browser_name** - Specify which browser to use. The default is `Google Chrome` but you can change it to `Google Chrome Canary`, `Safari`,`Firefox`, `Opera`, `IE`, `Iron` or `all` which will try to refresh any of the above present in your system.
 
-## Requirements
-Currently it only works on **Mac OS X** and **Windows 7** with **Google Chrome**, **Google Chrome Canary**, **Safari**, **Firefox** and **Opera**. I don't really plan to extend it for now. If you want to make it better, please feel free to fork and request a pull.
+## Supported Browsers
+- Google Chrome (Mac, Win)
+- Google Chrome Canary (Mac)
+- Safari (Mac, Win)
+- Firefox (Mac, Win)
+- Opera (Mac, Win)
+- Internet Explorer (Win)
+- SRWare Iron (Win)
 
 ## How to install
-**With the Package Control plugin:** The easiest way to install BrowserRefresh is through Package Control, which can be found at [http://wbond.net/sublime_packages/package_control](http://wbond.net/sublime_packages/package_control)
+**With the Package Control plugin:** The easiest way to install **Browser Refresh** is through Package Control, which can be found at [http://wbond.net/sublime_packages/package_control](http://wbond.net/sublime_packages/package_control)
 
 **Without Git:** Download the latest source from GitHub and copy the BrowserRefresh folder to your Sublime Text "Packages" directory.
 
@@ -39,6 +45,9 @@ Currently it only works on **Mac OS X** and **Windows 7** with **Google Chrome**
 ```
 git clone https://github.com/gcollazo/BrowserRefresh-Sublime.git
 ```
+
+## Contributions
+If you have the time to make this plugin better feel free to fork and submit a pull request. Good pull request will be published to Package Manager within 24hrs.
 
 ## License
 All of Browser Refresh for Sublime Text 2 is licensed under the MIT license.
