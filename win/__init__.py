@@ -1,5 +1,6 @@
 from pywinauto.application import Application, ProcessNotFoundError
 from pywinauto.findwindows import WindowNotFoundError
+from pywinauto.controls.HwndWrapper import ControlNotVisible
 
 import platform
 import time
@@ -60,13 +61,8 @@ class WinBrowserRefresh:
 
     def opera(self):
         try:
-            app = Application()
-            app.connect_(title_re='.*Opera')
-            ie = app.window_(title_re='.*Opera')
-            ie.TypeKeys('{F5}')
-            if self.is64bit:
-                self.TypeKeys64()
-        except WindowNotFoundError:
+            self.SendKeysToAllWindows('.*Opera')
+        except (WindowNotFoundError, ControlNotVisible):
             pass
 
     def ie(self):
