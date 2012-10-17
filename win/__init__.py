@@ -2,12 +2,11 @@ from pywinauto.application import Application, ProcessNotFoundError
 from pywinauto.findwindows import WindowNotFoundError
 
 import platform
+import time
 
 if platform.architecture()[0] == '64bit':
     import ctypes
-    import time
     user32 = ctypes.windll.user32
-
 
 class WinBrowserRefresh:
     def __init__(self, activate_browser):
@@ -18,23 +17,13 @@ class WinBrowserRefresh:
 
     def chrome(self):
         try:
-            app = Application()
-            app.connect_(title_re='.*- Google Chrome')
-            chrome = app.window_(title_re='.*- Google Chrome')
-            chrome.TypeKeys('{F5}')
-            if self.is64bit:
-                self.TypeKeys64()
+            self.SendKeysToAllWindows('.*- Google Chrome')
         except WindowNotFoundError:
             pass
 
     def iron(self):
         try:
-            app = Application()
-            app.connect_(title_re='.*- Iron')
-            iron = app.window_(title_re='.*- Iron')
-            iron.TypeKeys('{F5}')
-            if self.is64bit:
-                self.TypeKeys64()
+            self.SendKeysToAllWindows('.*- Iron')
         except WindowNotFoundError:
             pass
 
@@ -65,12 +54,7 @@ class WinBrowserRefresh:
 
     def firefox(self):
         try:
-            app = Application()
-            app.connect_(title_re='.*Mozilla Firefox')
-            firefox = app.window_(title_re='.*Mozilla Firefox')
-            firefox.TypeKeys('{F5}')
-            if self.is64bit:
-                self.TypeKeys64()
+            self.SendKeysToAllWindows('.*Mozilla Firefox')
         except WindowNotFoundError:
             pass
 
@@ -87,12 +71,7 @@ class WinBrowserRefresh:
 
     def ie(self):
         try:
-            app = Application()
-            app.connect_(title_re='.*Internet Explorer')
-            ie = app.window_(title_re='.*Internet Explorer')
-            ie.TypeKeys('{F5}')
-            if self.is64bit:
-                self.TypeKeys64()
+            self.SendKeysToAllWindows('.*Internet Explorer')
         except WindowNotFoundError:
             pass
 
@@ -103,3 +82,34 @@ class WinBrowserRefresh:
         time.sleep(1)
         user32.keybd_event(0x74, 0, 2, 0)  # 2 is the code for KEYDOWN
         user32.keybd_event(0x74, 0, 0, 0)  # 0 is the code for KEYUP
+
+    def SendKeysToAllWindows(self, title_regex):
+        "Sends the keystroke to all windows whose title matches the regex"
+
+        # We need to call find_windows on our own because Application.connect_ will
+        # call find_window and throw if it finds more than one match.
+        all_matches = pywinauto.findwindows.find_windows(title_re = title_regex)
+
+        # We need to store all window handles that have been sent keys in order
+        # to avoid reactivating windows and doing unnecesary refreshes. This is a
+        # side effect of having to call Application.connect_ on each regex match.
+        # We need to loop through each open window collection to support edge 
+        # cases like Google Canary where the Window title is identical to Chrome.
+        processed_handles = []
+        
+        for win in all_matches:
+            app = Application()
+            app.connect_(handle = win)
+            open_windows = app.windows_(title_re = title_regex)
+
+            for openwin in open_windows:
+                if openwin.handle in processed_handles:
+                    continue
+
+                openwin.TypeKeys('{F5}')
+                time.sleep(1)
+                if self.is64bit:
+                    self.TypeKeys64()
+
+                processed_handles.append(openwin.handle)
+
