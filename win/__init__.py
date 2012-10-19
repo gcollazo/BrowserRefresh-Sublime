@@ -5,15 +5,10 @@ from pywinauto.controls.HwndWrapper import ControlNotVisible
 import platform
 import time
 
-if platform.architecture()[0] == '64bit':
-    import ctypes
-    user32 = ctypes.windll.user32
-
 class WinBrowserRefresh:
     def __init__(self, activate_browser):
-        # For now we ignore the activate option
-        # we need to find out how to implement
-        self.is64bit = platform.architecture()[0] == '64bit'
+        # activate_browser is always true on Windows since you can't
+        # send keys to an inactive window programmatically. We ignore it.
         self.activate = activate_browser
 
     def chrome(self):
@@ -32,10 +27,8 @@ class WinBrowserRefresh:
         try:
             app = Application()
             app.connect_(path=r'C:\Program Files\Safari\Safari.exe')
-            ie = app.top_window_()
-            ie.TypeKeys('{F5}')
-            if self.is64bit:
-                self.TypeKeys64()
+            safari = app.top_window_()
+            safari.TypeKeys('{F5}')
         except (WindowNotFoundError, ProcessNotFoundError):
             self.safari64()
             pass
@@ -46,10 +39,8 @@ class WinBrowserRefresh:
         try:
             app = Application()
             app.connect_(path=r'C:\Program Files (x86)\Safari\Safari.exe')
-            ie = app.top_window_()
-            ie.TypeKeys('{F5}')
-            if self.is64bit:
-                self.TypeKeys64()
+            safari = app.top_window_()
+            safari.TypeKeys('{F5}')
         except (WindowNotFoundError, ProcessNotFoundError):
             pass
 
@@ -70,15 +61,6 @@ class WinBrowserRefresh:
             self.SendKeysToAllWindows('.*Internet Explorer')
         except WindowNotFoundError:
             pass
-
-    def TypeKeys64(self):
-        # This hack is only necessary when running SublimeText2 64bit.
-        # The other method works fine on SublimeText2 32bit,
-        # even when running 64bit Windows.
-        print "PassThrough"
- #       time.sleep(1)
- #       user32.keybd_event(0x74, 0, 2, 0)  # 2 is the code for KEYDOWN
- #       user32.keybd_event(0x74, 0, 0, 0)  # 0 is the code for KEYUP
 
     def SendKeysToAllWindows(self, title_regex):
         "Sends the keystroke to all windows whose title matches the regex"
@@ -104,11 +86,6 @@ class WinBrowserRefresh:
                     continue
 
                 openwin.TypeKeys('{F5}')
-
-#                if self.is64bit:
-#                    self.TypeKeys64()
-#                else:
+                processed_handles.append(openwin.handle) 
                 time.sleep(1)
-
-                processed_handles.append(openwin.handle)
 
