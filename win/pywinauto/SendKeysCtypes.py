@@ -29,7 +29,7 @@ WORD = ctypes.c_ushort
 # C:/PROGRA~1/MICROS~4/VC98/Include/winuser.h 4283
 class MOUSEINPUT(ctypes.Structure):
     "Needed for complete definition of INPUT structure - not used"
-    _pack_ = 2
+#    _pack_ = 2
     _fields_ = [
         # C:/PROGRA~1/MICROS~4/VC98/Include/winuser.h 4283
         ('dx', LONG),
@@ -37,7 +37,7 @@ class MOUSEINPUT(ctypes.Structure):
         ('mouseData', DWORD),
         ('dwFlags', DWORD),
         ('time', DWORD),
-        ('dwExtraInfo', DWORD),
+        ('dwExtraInfo', ctypes.POINTER(ctypes.c_ulong)),
     ]
 #assert ctypes.sizeof(MOUSEINPUT) == 24, ctypes.sizeof(MOUSEINPUT)
 #assert ctypes.alignment(MOUSEINPUT) == 2, ctypes.alignment(MOUSEINPUT)
@@ -46,14 +46,14 @@ class MOUSEINPUT(ctypes.Structure):
 # C:/PROGRA~1/MICROS~4/VC98/Include/winuser.h 4292
 class KEYBDINPUT(ctypes.Structure):
     "A particular keyboard event"
-    _pack_ = 2
+ #   _pack_ = 2
     _fields_ = [
         # C:/PROGRA~1/MICROS~4/VC98/Include/winuser.h 4292
         ('wVk', WORD),
         ('wScan', WORD),
         ('dwFlags', DWORD),
         ('time', DWORD),
-        ('dwExtraInfo', DWORD),
+        ('dwExtraInfo', ctypes.POINTER(ctypes.c_ulong)),
     ]
 #assert ctypes.sizeof(KEYBDINPUT) == 16, ctypes.sizeof(KEYBDINPUT)
 #assert ctypes.alignment(KEYBDINPUT) == 2, ctypes.alignment(KEYBDINPUT)
@@ -61,7 +61,7 @@ class KEYBDINPUT(ctypes.Structure):
 
 class HARDWAREINPUT(ctypes.Structure):
     "Needed for complete definition of INPUT structure - not used"
-    _pack_ = 2
+#    _pack_ = 2
     _fields_ = [
         # C:/PROGRA~1/MICROS~4/VC98/Include/winuser.h 4300
         ('uMsg', DWORD),
@@ -90,7 +90,7 @@ class UNION_INPUT_STRUCTS(ctypes.Union):
 # C:/PROGRA~1/MICROS~4/VC98/Include/winuser.h 4310
 class INPUT(ctypes.Structure):
     "See: http://msdn.microsoft.com/en-us/library/ms646270%28VS.85%29.aspx"
-    _pack_ = 2
+#    _pack_ = 2
     _fields_ = [
         # C:/PROGRA~1/MICROS~4/VC98/Include/winuser.h 4310
         ('type', DWORD),

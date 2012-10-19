@@ -75,9 +75,10 @@ class WinBrowserRefresh:
         # This hack is only necessary when running SublimeText2 64bit.
         # The other method works fine on SublimeText2 32bit,
         # even when running 64bit Windows.
-        time.sleep(1)
-        user32.keybd_event(0x74, 0, 2, 0)  # 2 is the code for KEYDOWN
-        user32.keybd_event(0x74, 0, 0, 0)  # 0 is the code for KEYUP
+        print "PassThrough"
+ #       time.sleep(1)
+ #       user32.keybd_event(0x74, 0, 2, 0)  # 2 is the code for KEYDOWN
+ #       user32.keybd_event(0x74, 0, 0, 0)  # 0 is the code for KEYUP
 
     def SendKeysToAllWindows(self, title_regex):
         "Sends the keystroke to all windows whose title matches the regex"
@@ -103,9 +104,11 @@ class WinBrowserRefresh:
                     continue
 
                 openwin.TypeKeys('{F5}')
+
+#                if self.is64bit:
+#                    self.TypeKeys64()
+#                else:
                 time.sleep(1)
-                if self.is64bit:
-                    self.TypeKeys64()
 
                 processed_handles.append(openwin.handle)
 
