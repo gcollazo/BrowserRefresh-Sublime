@@ -22,13 +22,15 @@ To edit settings go to `Preferences > Package Settings > Browser Refresh`
 
 **delay** - Adds a delay (in seconds) before triggering the refresh. Seems to be useful if you are using a CSS or JavaScript pre-processor. The default is 0.0 seconds. 
 
-**activate_browser** - If set to `true` when you press the keys it will bring the browser to the foreground.
+**activate_browser** - If set to `true` when you press the keys it will bring the browser to the foreground. **Note:** On Windows this setting is always `true`.
 
-**browser_name** - Specify which browser to use. The default is `Google Chrome` but you can change it to `Google Chrome Canary`, `Safari`,`Firefox`, `Opera`, `IE`, `Iron` or `all` which will try to refresh any of the above present in your system.
+**browser_name** - Specify which browser to use. The default is `Google Chrome` but you can change it to `Google Chrome Canary`, `Safari`,`Firefox`, `Opera`, `IE`, `Iron` 
+or `all` which will try to refresh any of the above present in your system. **Note**: on Windows use `Google Chrome` if you want to use Canary, because at the moment it's very hard to
+distinguish between them as both report themselves as Chrome. This also means that if you have both Chrome and Canary running, it will refresh the active tab on both browsers.
 
 ## Supported Browsers
 - Google Chrome (Mac, Win)
-- Google Chrome Canary (Mac)
+- Google Chrome Canary (Mac, Win - see note above)
 - Safari (Mac, Win)
 - Firefox (Mac, Win)
 - Opera (Mac, Win)
