@@ -51,6 +51,9 @@ git clone https://github.com/gcollazo/BrowserRefresh-Sublime.git
 ## Contributions
 If you have the time to make this plugin better feel free to fork and submit a pull request. Good pull request will be published to Package Manager within 24hrs.
 
+### Contributors
+* [Enrique Ramirez (enriquein)](https://github.com/enriquein)
+
 ## License
 All of Browser Refresh for Sublime Text 2 is licensed under the MIT license.
 
