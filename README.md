@@ -20,11 +20,11 @@ To edit settings go to `Preferences > Package Settings > Browser Refresh`
 
 **auto_save** - If set to `true` you current file in Sublime Text will be save before refreshing the browser window.
 
-**delay** - Adds a delay (in seconds) before triggering the refresh. Seems to be useful if you are using a CSS or JavaScript pre-processor. The default is 0.0 seconds. 
+**delay** - Adds a delay (in seconds) before triggering the refresh. Seems to be useful if you are using a CSS or JavaScript pre-processor. The default is 0.0 seconds.
 
-**activate_browser** - If set to `true` when you press the keys it will bring the browser to the foreground. **Note:** On Windows this setting is always `true`.
+**activate_browser** - If set to `true` when you press the keys it will bring the browser to the foreground.
 
-**browser_name** - Specify which browser to use. The default is `Google Chrome` but you can change it to `Google Chrome Canary`, `Safari`,`Firefox`, `Opera`, `IE`, `Iron` 
+**browser_name** - Specify which browser to use. The default is `Google Chrome` but you can change it to `Google Chrome Canary`, `Safari`,`Firefox`, `Opera`, `IE`, `Iron`
 or `all` which will try to refresh any of the above present in your system. **Note**: on Windows use `Google Chrome` if you want to use Canary, because at the moment it's very hard to
 distinguish between them as both report themselves as Chrome. This also means that if you have both Chrome and Canary running, it will refresh the active tab on both browsers.
 

@@ -72,10 +72,10 @@ class WinBrowserRefresh:
         # We need to store all window handles that have been sent keys in order
         # to avoid reactivating windows and doing unnecesary refreshes. This is a
         # side effect of having to call Application.connect_ on each regex match.
-        # We need to loop through each open window collection to support edge 
+        # We need to loop through each open window collection to support edge
         # cases like Google Canary where the Window title is identical to Chrome.
         processed_handles = []
-        
+
         for win in all_matches:
             app = Application()
             app.connect_(handle = win)
@@ -86,6 +86,8 @@ class WinBrowserRefresh:
                     continue
 
                 openwin.TypeKeys('{F5}')
-                processed_handles.append(openwin.handle) 
+                if False == self.activate:
+                    openwin.TypeKeys('%{TAB}')
+                processed_handles.append(openwin.handle)
                 time.sleep(1)
 
