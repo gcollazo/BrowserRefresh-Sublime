@@ -57,6 +57,12 @@ class WinBrowserRefresh:
         except (WindowNotFoundError, ControlNotVisible):
             pass
 
+    def yandex(self):
+        try:
+            self.SendKeysToAllWindows('.*Yandex')
+        except WindowNotFoundError:
+            pass
+
     def ie(self):
         try:
             self.SendKeysToAllWindows('.*Internet Explorer')
