@@ -47,6 +47,7 @@ class WinBrowserRefresh:
     def firefox(self):
         try:
             self.SendKeysToAllWindows('.*Mozilla Firefox')
+            self.SendKeysToAllWindows('.*Aurora')
         except WindowNotFoundError:
             pass
 
@@ -54,6 +55,12 @@ class WinBrowserRefresh:
         try:
             self.SendKeysToAllWindows('.*Opera')
         except (WindowNotFoundError, ControlNotVisible):
+            pass
+
+    def yandex(self):
+        try:
+            self.SendKeysToAllWindows('.*Yandex')
+        except WindowNotFoundError:
             pass
 
     def ie(self):
