@@ -32,7 +32,7 @@ distinguish between them as both report themselves as Chrome. This also means th
 - Google Chrome (Mac, Win)
 - Google Chrome Canary (Mac, Win - see note above)
 - Safari (Mac, Win)
-- Firefox (Mac, Win)
+- Firefox (Mac without Aurora support, Win with Aurora support)
 - Opera (Mac, Win)
 - Internet Explorer (Win)
 - SRWare Iron (Win)

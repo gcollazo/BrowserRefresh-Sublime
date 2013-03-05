@@ -47,6 +47,7 @@ class WinBrowserRefresh:
     def firefox(self):
         try:
             self.SendKeysToAllWindows('.*Mozilla Firefox')
+            self.SendKeysToAllWindows('.*Aurora')
         except WindowNotFoundError:
             pass
 
