@@ -11,12 +11,11 @@ class MacBrowserRefresh:
         else:
             self.activate = ''
 
-        # delay 1 is used to take into account space switching. Otherwise it screws up
-        # the reference assignment and it won't come to the front of Developer Tools.
+        self.browsers = running_browsers
+
         self._chrome_applescript = """
             tell application "{name}"
                 {activate}
-                delay 1
                 set winref to a reference to (first window whose title does not start with "Developer Tools - ")
                 set winref's index to 1
                 reload active tab of winref
