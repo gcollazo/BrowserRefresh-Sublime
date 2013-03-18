@@ -1,12 +1,9 @@
 from subprocess import call
-from utils import running_browsers
-
-browsers = running_browsers()
 
 
 class MacBrowserRefresh:
-    def __init__(self, activate_browser):
-        if activate_browser == True:
+    def __init__(self, activate_browser, running_browsers):
+        if activate_browser:
             self.activate = 'activate'
         else:
             self.activate = ''
@@ -26,7 +23,7 @@ class MacBrowserRefresh:
         command = self._chrome_applescript.format(
             name=app_name, activate=self.activate)
 
-        if browser_name in browsers:
+        if browser_name in self.browsers:
             self._call_applescript(command)
 
     def chrome(self):
@@ -38,14 +35,14 @@ class MacBrowserRefresh:
     def safari(self):
         command = """
             tell application "Safari"
-                activate
+                {activate}
                 tell its first document
                     set its URL to (get its URL)
                 end tell
             end tell
             """.format(activate=self.activate)
 
-        if 'safari' in browsers:
+        if 'safari' in self.browsers:
             self._call_applescript(command)
 
     def firefox(self):
@@ -56,7 +53,7 @@ class MacBrowserRefresh:
             end tell
             """
 
-        if 'firefox' in browsers:
+        if 'firefox' in self.browsers:
             self._call_applescript(command)
 
     def opera(self):
@@ -67,7 +64,7 @@ class MacBrowserRefresh:
             end tell
             """
 
-        if 'opera' in browsers:
+        if 'opera' in self.browsers:
             self._call_applescript(command)
 
     def _call_applescript(self, command):
