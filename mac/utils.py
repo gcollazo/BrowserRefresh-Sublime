@@ -15,13 +15,16 @@ def running_browsers():
     if re.search(b'Firefox\.app', ps) is not None:
         running_browsers.append('firefox')
 
-    if re.search(b'Safari\.app', ps) is not None:
+    if re.search(b'Safari.app\/Contents\/MacOS\/Safari\ ', ps) is not None:
         running_browsers.append('safari')
+
+    if re.search(b'Safari\.app\/Contents\/MacOS\/SafariForWebKitDevelopment', ps) is not None:
+        running_browsers.append('webkit')
 
     if re.search(b'Opera\.app', ps) is not None:
         running_browsers.append('opera')
 
-    return running_browsers if len(running_browsers) > 0 else None
+    return running_browsers
 
 
 # Got this from http://stackoverflow.com/a/2924457/124852

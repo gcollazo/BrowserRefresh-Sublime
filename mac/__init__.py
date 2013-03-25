@@ -45,6 +45,19 @@ class MacBrowserRefresh:
         if 'safari' in self.browsers:
             self._call_applescript(command)
 
+    def webkit(self):
+        command = """
+            tell application "WebKit"
+                {activate}
+                tell its first document
+                    set its URL to (get its URL)
+                end tell
+            end tell
+            """.format(activate=self.activate)
+
+        if 'webkit' in self.browsers:
+            self._call_applescript(command)
+
     def firefox(self):
         command = """
             tell application "Firefox"

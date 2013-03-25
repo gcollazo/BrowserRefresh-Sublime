@@ -55,6 +55,9 @@ class BrowserRefreshCommand(sublime_plugin.TextCommand):
         elif browser_name == 'Safari':
             refresher.safari()
 
+        elif browser_name == 'WebKit' and _os == 'Darwin':
+            refresher.webkit()
+
         elif browser_name == 'Firefox':
             refresher.firefox()
 
@@ -75,6 +78,7 @@ class BrowserRefreshCommand(sublime_plugin.TextCommand):
 
             if _os == 'Darwin':
                 refresher.canary()
+                refresher.webkit()
 
             if _os == 'Windows':
                 refresher.ie()
