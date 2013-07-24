@@ -37,6 +37,9 @@ class BrowserRefreshCommand(sublime_plugin.TextCommand):
         elif _os == 'Windows':
             from win import WinBrowserRefresh
             refresher = WinBrowserRefresh(activate_browser)
+        elif _os == 'Linux':
+            from linux import LinuxBrowserRefresh
+            refresher = LinuxBrowserRefresh(activate_browser)
         else:
             sublime.error_message('Your operating system is not supported')
 
