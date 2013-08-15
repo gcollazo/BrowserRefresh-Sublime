@@ -1,6 +1,6 @@
 # Browser Refresh for Sublime Text
 
-After installing this plugin you can hit `command + shift + r` on Mac OS X or `ctrl + shift + r` on Windows while using your favorite browser, the last active window will come to the foreground *(optional in Chrome, Canary, Safari and WebKit on Mac)* and reload the active tab. If the current file is unsaved, it will be saved before the browser is activated and reloaded.
+After installing this plugin you can hit `command + shift + r` on Mac OS X or `ctrl + shift + r` on Windows while using your favorite browser, the last active window will come to the foreground *(you can turn this off in Chrome, Canary, Safari, WebKit and Yandex on Mac)* and reload the active tab. If the current file is unsaved, it will be saved before the browser is activated and reloaded.
 
 ## Settings
 To edit settings go to `Preferences > Package Settings > Browser Refresh`
@@ -28,7 +28,7 @@ Adds a delay (in seconds) before triggering the refresh. Seems to be useful if y
 If set to `true` when you press the keys it will bring the browser to the foreground. **Note:** On Windows this setting is always `true`.
 
 **browser_name**  
-Specify which browser to use. The default is `all` which will try to refresh all running browser on your system. You can change to be more specific: `Google Chrome`, `Google Chrome Canary`, `Safari`, `WebKit`, `Firefox`, `Opera`, `IE`, `Iron`.
+Specify which browser to use. The default is `all` which will try to refresh all running browser on your system. You can change to be more specific: `Google Chrome`, `Google Chrome Canary`, `Safari`, `WebKit`, `Firefox`, `Opera`, `IE`, `Iron`, `Yandex`.
 
 **Note**: on Windows use `Google Chrome` if you want to use Canary, because at the moment it's very hard to distinguish between them as both report themselves as Chrome. This also means that if you have both Chrome and Canary running, it will refresh the active tab on both browsers.
 
@@ -41,6 +41,7 @@ Specify which browser to use. The default is `all` which will try to refresh all
 - Opera (Mac, Win)
 - Internet Explorer (Win)
 - SRWare Iron (Win)
+- Yandex (Mac)
 
 
 ## How to install
@@ -54,11 +55,11 @@ Download the latest source from GitHub and copy the BrowserRefresh folder to you
 Clone the repository in your Sublime Text "Packages" directory:
 
 ```
-git clone https://github.com/gcollazo/BrowserRefresh-Sublime.git
+git clone https://github.com/gcollazo/BrowserRefresh-Sublime.git "Browser Refresh"
 ```
 
 ## Contributions
-If you have the time to make this plugin better feel free to fork and submit a pull request. Good pull request will be published to Package Manager within 24hrs.
+If you have the time to make this plugin better feel free to fork and submit a pull request.
 
 ### Contributors
 * [Enrique Ramirez (enriquein)](https://github.com/enriquein)
@@ -66,7 +67,7 @@ If you have the time to make this plugin better feel free to fork and submit a p
 ## License
 All of Browser Refresh for Sublime Text 2 is licensed under the MIT license.
 
-Copyright (c) 2012 Giovanni Collazo
+Copyright (c) 2012 - 2013 Giovanni Collazo
 
 Permission is hereby granted, free of charge, to any person obtaining a copy of this software and associated documentation files (the "Software"), to deal in the Software without restriction, including without limitation the rights to use, copy, modify, merge, publish, distribute, sublicense, and/or sell copies of the Software, and to permit persons to whom the Software is furnished to do so, subject to the following conditions:
 
