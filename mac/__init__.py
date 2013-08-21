@@ -20,7 +20,6 @@ class MacBrowserRefresh:
             """
 
     def _chrome(self, app_name, browser_name):
-        print 'print command did run'
         command = self._chrome_applescript.format(
             name=app_name, activate=self.activate)
 
@@ -85,5 +84,4 @@ class MacBrowserRefresh:
             self._call_applescript(command)
 
     def _call_applescript(self, command):
-        print '_call_applescript'
         call(['osascript', '-e', command])
