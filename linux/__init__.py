@@ -24,7 +24,7 @@ class LinuxBrowserRefresh:
         #except NotImplemented("Safari64 support not implemented yet.")
 
     def firefox(self):
-        self.SendKeysToAllWindows('google-chrome', 'F5')
+        self.SendKeysToAllWindows('firefox', 'F5')
 
     def opera(self):
         pass
