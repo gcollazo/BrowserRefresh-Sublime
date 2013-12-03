@@ -13,7 +13,7 @@ class WinBrowserRefresh:
 
     def chrome(self):
         try:
-            self.SendKeysToAllWindows('.*- Google Chrome')
+            self.SendKeysToAllWindows('.*- Chrome')
         except WindowNotFoundError:
             pass
 
