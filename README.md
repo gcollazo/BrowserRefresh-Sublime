@@ -2,7 +2,7 @@
 
 After installing this plugin you can hit `command + shift + r` on Mac OS X or `ctrl + shift + r` on Windows while using your favorite browser, the last active window will come to the foreground *(you can turn this off in Chrome, Canary, Safari, WebKit and Yandex on Mac)* and reload the active tab. If the current file is unsaved, it will be saved before the browser is activated and reloaded.
 
-## Installation & Settings
+### 1. Install the package
 **With the Package Control plugin**  
 The easiest way to install **Browser Refresh** is through Package Control, which can be found at [http://wbond.net/sublime_packages/package_control](http://wbond.net/sublime_packages/package_control).
 
@@ -16,8 +16,7 @@ Clone the repository in your Sublime Text "Packages" directory:
 git clone https://github.com/gcollazo/BrowserRefresh-Sublime.git "Browser Refresh"
 ```
 
-**Key Bindings**
-
+### 2. Configure Key Bindings
 You need to add the following to your `Key Bindings - User`. Go to `Preferences > Key Bindings - User` and add the following to that file and save. Without this step the plugin will not work.
 
 ```json
