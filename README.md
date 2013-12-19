@@ -17,6 +17,7 @@ git clone https://github.com/gcollazo/BrowserRefresh-Sublime.git "Browser Refres
 ```
 
 **Key Bindings**
+
 You need to add the following to your `Key Bindings - User`. Go to `Preferences > Key Bindings - User` and add the following to that file and save. Without this step the plugin will not work.
 
 ```json
