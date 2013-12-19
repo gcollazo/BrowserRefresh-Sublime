@@ -1,0 +1,40 @@
+______                                 
+| ___ \                                
+| |_/ /_ __ _____      _____  ___ _ __ 
+| ___ \ '__/ _ \ \ /\ / / __|/ _ \ '__|
+| |_/ / | | (_) \ V  V /\__ \  __/ |   
+\____/|_|  \___/ \_/\_/ |___/\___|_|   
+                                       
+                                       
+______      __               _         
+| ___ \    / _|             | |        
+| |_/ /___| |_ _ __ ___  ___| |__      
+|    // _ \  _| '__/ _ \/ __| '_ \     
+| |\ \  __/ | | | |  __/\__ \ | | |    
+\_| \_\___|_| |_|  \___||___/_| |_|    
+                                       
+                                       
+                                       
+Thanks for installing Browser Refresh!
+
+* * Important * *
+To complete the installation make sure you add the necessary key bindings.
+Go to "Preferences  > Key Bindings - User" in the menu and add the following:
+ 
+{
+    "keys": ["command+shift+r"], "command": "browser_refresh", "args": {
+        "auto_save": true,
+        "delay": 0.5,
+        "activate_browser": true,
+        "browser_name" : "all"
+    }
+}
+
+For complete documentation please visit:
+https://github.com/gcollazo/BrowserRefresh-Sublime
+
+Bug reports:
+https://github.com/gcollazo/BrowserRefresh-Sublime/issues
+
+Twitter:
+http://twitter.com/gcollazo
