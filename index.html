@@ -27,21 +27,38 @@
         </ul>
       </header>
       <section>
-        <h1>Browser Refresh for Sublime Text</h1>
+        <h1>
+<a name="browser-refresh-for-sublime-text" class="anchor" href="#browser-refresh-for-sublime-text"><span class="octicon octicon-link"></span></a>Browser Refresh for Sublime Text</h1>
 
-<p>After installing this plugin you can hit <code>command + shift + r</code> on Mac OS X or <code>ctrl + shift + r</code> on Windows while using your favorite browser, the last active window will come to the foreground <em>(optional in Chrome, Canary, Safari and WebKit on Mac)</em> and reload the active tab. If the current file is unsaved, it will be saved before the browser is activated and reloaded.</p>
+<p>After installing this plugin you can hit <code>command + shift + r</code> on Mac OS X or <code>ctrl + shift + r</code> on Windows while using your favorite browser, the last active window will come to the foreground <em>(you can turn this off in Chrome, Canary, Safari, WebKit and Yandex on Mac)</em> and reload the active tab. If the current file is unsaved, it will be saved before the browser is activated and reloaded.</p>
 
-<h2>Settings</h2>
+<h3>
+<a name="1-install-the-package" class="anchor" href="#1-install-the-package"><span class="octicon octicon-link"></span></a>1. Install the package</h3>
 
-<p>To edit settings go to <code>Preferences &gt; Package Settings &gt; Browser Refresh</code></p>
+<p><strong>With the Package Control plugin</strong><br>
+The easiest way to install <strong>Browser Refresh</strong> is through Package Control, which can be found at <a href="http://wbond.net/sublime_packages/package_control">http://wbond.net/sublime_packages/package_control</a>.</p>
 
-<div class="highlight"><pre><span class="p">[</span>
+<p><strong>Without Git</strong><br>
+Download the latest source from GitHub and copy the BrowserRefresh folder to your Sublime Text "Packages" directory.</p>
+
+<p><strong>With Git</strong><br>
+Clone the repository in your Sublime Text "Packages" directory:</p>
+
+<pre><code>git clone https://github.com/gcollazo/BrowserRefresh-Sublime.git "Browser Refresh"
+</code></pre>
+
+<h3>
+<a name="2-configure-key-bindings" class="anchor" href="#2-configure-key-bindings"><span class="octicon octicon-link"></span></a>2. Configure Key Bindings</h3>
+
+<p>You need to add the following to your <code>Key Bindings - User</code>. Go to <code>Preferences &gt; Key Bindings - User</code> and add the following to that file and save. Without this step the plugin will not work.</p>
+
+<div class="highlight highlight-json"><pre><span class="p">[</span>
     <span class="p">{</span>
         <span class="nt">"keys"</span><span class="p">:</span> <span class="p">[</span><span class="s2">"command+shift+r"</span><span class="p">],</span> <span class="nt">"command"</span><span class="p">:</span> <span class="s2">"browser_refresh"</span><span class="p">,</span> <span class="nt">"args"</span><span class="p">:</span> <span class="p">{</span>
             <span class="nt">"auto_save"</span><span class="p">:</span> <span class="kc">true</span><span class="p">,</span>
             <span class="nt">"delay"</span><span class="p">:</span> <span class="mf">0.5</span><span class="p">,</span>
             <span class="nt">"activate_browser"</span><span class="p">:</span> <span class="kc">true</span><span class="p">,</span>
-            <span class="nt">"browser_name"</span> <span class="p">:</span> <span class="s2">"Google Chrome"</span>
+            <span class="nt">"browser_name"</span> <span class="p">:</span> <span class="s2">"all"</span>
         <span class="p">}</span>
     <span class="p">}</span>
 <span class="p">]</span>
@@ -57,11 +74,12 @@ Adds a delay (in seconds) before triggering the refresh. Seems to be useful if y
 If set to <code>true</code> when you press the keys it will bring the browser to the foreground. <strong>Note:</strong> On Windows this setting is always <code>true</code>.</p>
 
 <p><strong>browser_name</strong><br>
-Specify which browser to use. The default is <code>all</code> which will try to refresh all running browser on your system. You can change to be more specific: <code>Google Chrome</code>, <code>Google Chrome Canary</code>, <code>Safari</code>, <code>WebKit</code>, <code>Firefox</code>, <code>Opera</code>, <code>IE</code>, <code>Iron</code>.</p>
+Specify which browser to use. The default is <code>all</code> which will try to refresh all running browser on your system. You can change to be more specific: <code>Google Chrome</code>, <code>Google Chrome Canary</code>, <code>Safari</code>, <code>WebKit</code>, <code>Firefox</code>, <code>Opera</code>, <code>IE</code>, <code>Iron</code>, <code>Yandex</code>.</p>
 
 <p><strong>Note</strong>: on Windows use <code>Google Chrome</code> if you want to use Canary, because at the moment it's very hard to distinguish between them as both report themselves as Chrome. This also means that if you have both Chrome and Canary running, it will refresh the active tab on both browsers.</p>
 
-<h2>Supported Browsers</h2>
+<h2>
+<a name="supported-browsers" class="anchor" href="#supported-browsers"><span class="octicon octicon-link"></span></a>Supported Browsers</h2>
 
 <ul>
 <li>Google Chrome (Mac, Win)</li>
@@ -72,33 +90,23 @@ Specify which browser to use. The default is <code>all</code> which will try to 
 <li>Opera (Mac, Win)</li>
 <li>Internet Explorer (Win)</li>
 <li>SRWare Iron (Win)</li>
-</ul><h2>How to install</h2>
+<li>Yandex (Mac)</li>
+</ul><h2>
+<a name="contributions" class="anchor" href="#contributions"><span class="octicon octicon-link"></span></a>Contributions</h2>
 
-<p><strong>With the Package Control plugin</strong><br>
-The easiest way to install <strong>Browser Refresh</strong> is through Package Control, which can be found at <a href="http://wbond.net/sublime_packages/package_control">http://wbond.net/sublime_packages/package_control</a>.</p>
+<p>If you have the time to make this plugin better feel free to fork and submit a pull request.</p>
 
-<p><strong>Without Git</strong><br>
-Download the latest source from GitHub and copy the BrowserRefresh folder to your Sublime Text "Packages" directory.</p>
-
-<p><strong>With Git</strong><br>
-Clone the repository in your Sublime Text "Packages" directory:</p>
-
-<pre><code>git clone https://github.com/gcollazo/BrowserRefresh-Sublime.git
-</code></pre>
-
-<h2>Contributions</h2>
-
-<p>If you have the time to make this plugin better feel free to fork and submit a pull request. Good pull request will be published to Package Manager within 24hrs.</p>
-
-<h3>Contributors</h3>
+<h3>
+<a name="contributors" class="anchor" href="#contributors"><span class="octicon octicon-link"></span></a>Contributors</h3>
 
 <ul>
 <li><a href="https://github.com/enriquein">Enrique Ramirez (enriquein)</a></li>
-</ul><h2>License</h2>
+</ul><h2>
+<a name="license" class="anchor" href="#license"><span class="octicon octicon-link"></span></a>License</h2>
 
 <p>All of Browser Refresh for Sublime Text 2 is licensed under the MIT license.</p>
 
-<p>Copyright (c) 2012 Giovanni Collazo</p>
+<p>Copyright (c) 2012 - 2013 Giovanni Collazo</p>
 
 <p>Permission is hereby granted, free of charge, to any person obtaining a copy of this software and associated documentation files (the "Software"), to deal in the Software without restriction, including without limitation the rights to use, copy, modify, merge, publish, distribute, sublicense, and/or sell copies of the Software, and to permit persons to whom the Software is furnished to do so, subject to the following conditions:</p>
 
