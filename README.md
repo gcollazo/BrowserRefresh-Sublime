@@ -6,6 +6,10 @@ After installing this plugin you can hit `command + shift + r` on Mac OS X or `c
 **With the Package Control plugin**  
 The easiest way to install **Browser Refresh** is through Package Control, which can be found at [http://wbond.net/sublime_packages/package_control](http://wbond.net/sublime_packages/package_control).
 
+```
+Using Package Manager search for "Browser Refresh"
+```
+
 **Without Git**  
 Download the latest source from GitHub and copy the BrowserRefresh folder to your Sublime Text "Packages" directory.
 
