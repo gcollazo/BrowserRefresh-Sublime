@@ -47,6 +47,22 @@
                                 },
                                 "caption": "Key Bindings – User"
                             },
+                            {
+                                "command": "open_file",
+                                "args": {
+                                    "file": "${packages}/Browser Refresh/Default (Linux).sublime-keymap",
+                                    "platform": "Linux"
+                                },
+                                "caption": "Key Bindings – Default"
+                            },
+                            {
+                                "command": "open_file",
+                                "args": {
+                                    "file": "${packages}/User/Default (Linux).sublime-keymap",
+                                    "platform": "Linux"
+                                },
+                                "caption": "Key Bindings – User"
+                            },
                             { "caption": "-" }
                         ]
                     }
