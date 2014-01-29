@@ -1,6 +1,6 @@
 # Browser Refresh for Sublime Text
 
-After installing this plugin you can hit `command + shift + r` on Mac OS X or `ctrl + shift + r` on Windows while using your favorite browser, the last active window will come to the foreground *(you can turn this off in Chrome, Canary, Safari, WebKit and Yandex on Mac)* and reload the active tab. If the current file is unsaved, it will be saved before the browser is activated and reloaded.
+After installing this plugin you can hit `command + shift + r` on Mac OS X or `ctrl + shift + r` on Windows and Linux while using your favorite browser, the last active window will come to the foreground *(you can turn this off in Chrome, Canary, Safari, WebKit and Yandex on Mac)* and reload the active tab. If the current file is unsaved, it will be saved before the browser is activated and reloaded.
 
 ### 1. Install the package
 **With the Package Control plugin**  
@@ -18,6 +18,13 @@ Clone the repository in your Sublime Text "Packages" directory:
 
 ```
 git clone https://github.com/gcollazo/BrowserRefresh-Sublime.git "Browser Refresh"
+```
+
+#### 1.1 On Linux
+Install xdotool:
+
+```
+sudo apt-get install xdotool
 ```
 
 ### 2. Configure Key Bindings
@@ -51,11 +58,11 @@ Specify which browser to use. The default is `all` which will try to refresh all
 **Note**: on Windows use `Google Chrome` if you want to use Canary, because at the moment it's very hard to distinguish between them as both report themselves as Chrome. This also means that if you have both Chrome and Canary running, it will refresh the active tab on both browsers.
 
 ## Supported Browsers
-- Google Chrome (Mac, Win)
+- Google Chrome (Mac, Win, Linux)
 - Google Chrome Canary (Mac, Win - see note above)
 - Safari (Mac, Win)
 - WebKit (Mac)
-- Firefox (Mac, Win)
+- Firefox (Mac, Win, Linux)
 - Opera (Mac, Win)
 - Internet Explorer (Win)
 - SRWare Iron (Win)
@@ -66,11 +73,13 @@ If you have the time to make this plugin better feel free to fork and submit a p
 
 ### Contributors
 * [Enrique Ramirez (enriquein)](https://github.com/enriquein)
+* [generalov](https://github.com/generalov)
+* [Tomáš Votruba (TomasVotruba)](https://github.com/tomasvotruba)
 
 ## License
 All of Browser Refresh for Sublime Text 2 is licensed under the MIT license.
 
-Copyright (c) 2012 - 2013 Giovanni Collazo
+Copyright (c) 2012 - 2014 Giovanni Collazo
 
 Permission is hereby granted, free of charge, to any person obtaining a copy of this software and associated documentation files (the "Software"), to deal in the Software without restriction, including without limitation the rights to use, copy, modify, merge, publish, distribute, sublicense, and/or sell copies of the Software, and to permit persons to whom the Software is furnished to do so, subject to the following conditions:
 
