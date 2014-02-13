@@ -30,7 +30,7 @@
         <h1>
 <a name="browser-refresh-for-sublime-text" class="anchor" href="#browser-refresh-for-sublime-text"><span class="octicon octicon-link"></span></a>Browser Refresh for Sublime Text</h1>
 
-<p>After installing this plugin you can hit <code>command + shift + r</code> on Mac OS X or <code>ctrl + shift + r</code> on Windows while using your favorite browser, the last active window will come to the foreground <em>(you can turn this off in Chrome, Canary, Safari, WebKit and Yandex on Mac)</em> and reload the active tab. If the current file is unsaved, it will be saved before the browser is activated and reloaded.</p>
+<p>After installing this plugin you can hit <code>command + shift + r</code> on Mac OS X or <code>ctrl + shift + r</code> on Windows and Linux while using your favorite browser, the last active window will come to the foreground <em>(you can turn this off in Chrome, Canary, Safari, WebKit and Yandex on Mac)</em> and reload the active tab. If the current file is unsaved, it will be saved before the browser is activated and reloaded.</p>
 
 <h3>
 <a name="1-install-the-package" class="anchor" href="#1-install-the-package"><span class="octicon octicon-link"></span></a>1. Install the package</h3>
@@ -48,6 +48,14 @@ Download the latest source from GitHub and copy the BrowserRefresh folder to you
 Clone the repository in your Sublime Text "Packages" directory:</p>
 
 <pre><code>git clone https://github.com/gcollazo/BrowserRefresh-Sublime.git "Browser Refresh"
+</code></pre>
+
+<h4>
+<a name="11-on-linux" class="anchor" href="#11-on-linux"><span class="octicon octicon-link"></span></a>1.1 On Linux</h4>
+
+<p>Install xdotool:</p>
+
+<pre><code>sudo apt-get install xdotool
 </code></pre>
 
 <h3>
@@ -85,11 +93,11 @@ Specify which browser to use. The default is <code>all</code> which will try to 
 <a name="supported-browsers" class="anchor" href="#supported-browsers"><span class="octicon octicon-link"></span></a>Supported Browsers</h2>
 
 <ul>
-<li>Google Chrome (Mac, Win)</li>
+<li>Google Chrome (Mac, Win, Linux)</li>
 <li>Google Chrome Canary (Mac, Win - see note above)</li>
 <li>Safari (Mac, Win)</li>
 <li>WebKit (Mac)</li>
-<li>Firefox (Mac, Win)</li>
+<li>Firefox (Mac, Win, Linux)</li>
 <li>Opera (Mac, Win)</li>
 <li>Internet Explorer (Win)</li>
 <li>SRWare Iron (Win)</li>
@@ -104,12 +112,14 @@ Specify which browser to use. The default is <code>all</code> which will try to 
 
 <ul>
 <li><a href="https://github.com/enriquein">Enrique Ramirez (enriquein)</a></li>
+<li><a href="https://github.com/generalov">generalov</a></li>
+<li><a href="https://github.com/tomasvotruba">Tomáš Votruba (TomasVotruba)</a></li>
 </ul><h2>
 <a name="license" class="anchor" href="#license"><span class="octicon octicon-link"></span></a>License</h2>
 
 <p>All of Browser Refresh for Sublime Text 2 is licensed under the MIT license.</p>
 
-<p>Copyright (c) 2012 - 2013 Giovanni Collazo</p>
+<p>Copyright (c) 2012 - 2014 Giovanni Collazo</p>
 
 <p>Permission is hereby granted, free of charge, to any person obtaining a copy of this software and associated documentation files (the "Software"), to deal in the Software without restriction, including without limitation the rights to use, copy, modify, merge, publish, distribute, sublicense, and/or sell copies of the Software, and to permit persons to whom the Software is furnished to do so, subject to the following conditions:</p>
 
