@@ -38,8 +38,8 @@ def _unittests():
         visible_only = False)
 
     for win in windows:
-        print "==" * 20
-        print handleprops.dumpwindow(win)
+        print("==" * 20)
+        print(handleprops.dumpwindow(win))
 
 #class ApplicationTestCases(unittest.TestCase):
 #    "Unit tests for the ListViewWrapper class"

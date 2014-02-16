@@ -63,15 +63,15 @@ import pickle
 
 import ctypes
 
-import win32structures
-import win32functions
-import win32defines
-import controls
-import findbestmatch
-import findwindows
-import handleprops
+from . import win32structures
+from . import win32functions
+from . import win32defines
+from . import controls
+from . import findbestmatch
+from . import findwindows
+from . import handleprops
 
-from timings import Timings, WaitUntil, TimeoutError, WaitUntilPasses
+from .timings import Timings, WaitUntil, TimeoutError, WaitUntilPasses
 
 
 class AppStartError(Exception):
@@ -433,7 +433,7 @@ class WindowSpecification(object):
 
         try:
             wait_val = WaitUntil(timeout, retry_interval, WindowIsNotXXX)
-        except TimeoutError, e:
+        except TimeoutError as e:
             raise RuntimeError(
                 "Timed out while waiting for window (%s - '%s') "
                 "to not be in '%s' state"% (
@@ -465,7 +465,7 @@ class WindowSpecification(object):
 
         # swap it around so that we are mapped off the controls
         control_name_map = {}
-        for name, ctrl in name_control_map.items():
+        for name, ctrl in list(name_control_map.items()):
             control_name_map.setdefault(ctrl, []).append(name)
 
         return control_name_map
@@ -507,23 +507,23 @@ class WindowSpecification(object):
 
         # swap it around so that we are mapped off the controls
         control_name_map = {}
-        for name, ctrl in name_control_map.items():
+        for name, ctrl in list(name_control_map.items()):
             control_name_map.setdefault(ctrl, []).append(name)
 
-        print "Control Identifiers:"
+        print("Control Identifiers:")
         for ctrl in ctrls_to_print:
 
-            print "%s - '%s'   %s"% (
+            print("%s - '%s'   %s"% (
                 ctrl.Class(),
                 ctrl.WindowText().encode("unicode-escape"),
-                str(ctrl.Rectangle()))
+                str(ctrl.Rectangle())))
 
-            print "\t",
+            print("\t", end=' ')
             names = control_name_map[ctrl]
             names.sort()
             for name in names:
-                print "'%s'" % name.encode("unicode_escape"),
-            print
+                print("'%s'" % name.encode("unicode_escape"), end=' ')
+            print()
 
 
 #        for ctrl in ctrls_to_print:
@@ -591,7 +591,7 @@ def _resolve_from_appdata(
     # completely language dependent
     for unloc_attrib in ['title_re', 'title', 'best_match']:
         for c in criteria:
-            if c.has_key(unloc_attrib):
+            if unloc_attrib in c:
                 del c[unloc_attrib]
 
 
@@ -683,8 +683,8 @@ def _resolve_from_appdata(
                 try:
                     ctrl = controls.WrapHandle(ctrl_hwnds[0])
                 except IndexError:
-                    print "-+-+=_" * 20
-                    print found_criteria
+                    print("-+-+=_" * 20)
+                    print(found_criteria)
                     raise
 
                 break
@@ -784,7 +784,7 @@ def _resolve_control(criteria, timeout = None, retry_interval = None):
             controls.InvalidWindowHandle),
             criteria)
 
-    except TimeoutError, e:
+    except TimeoutError as e:
         raise e.original_exception
 
     return ctrl
@@ -853,7 +853,7 @@ class Application(object):
 
         # we need to wrap the command line as it can be modified
         # by the function
-        command_line = ctypes.c_wchar_p(unicode(cmd_line))
+        command_line = ctypes.c_wchar_p(str(cmd_line))
 
         # Actually create the process
         ret = win32functions.CreateProcess(

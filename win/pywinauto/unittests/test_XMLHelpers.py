@@ -50,7 +50,7 @@ class XMLHelperTestCases(unittest.TestCase):
 
     def testOneUnicode(self):
         "Make sure the friendly class is set correctly"
-        props = [dict(test = u"hiya")]
+        props = [dict(test = "hiya")]
         self.assertReadWriteSame(props)
 
     def testOneString(self):
@@ -63,7 +63,7 @@ class XMLHelperTestCases(unittest.TestCase):
 
         test_string = []
         for i in range(0, 50000):
-            test_string.append(unichr(i))
+            test_string.append(chr(i))
 
         test_string = "".join(test_string)
 
@@ -95,7 +95,7 @@ class XMLHelperTestCases(unittest.TestCase):
         "Test writing/reading one LOGFONTW is correct"
         font = LOGFONTW()
         font.lfWeight = 23
-        font.lfFaceName = u"wowow"
+        font.lfFaceName = "wowow"
         props = [dict(test = font)]
         self.assertReadWriteSame(props)
 

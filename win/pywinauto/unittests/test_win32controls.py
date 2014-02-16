@@ -428,7 +428,7 @@ class EditTestCases(unittest.TestCase):
         self.ctrl.Select(18, 7)
         self.assertEquals((7, 18), self.ctrl.SelectionIndices())
 
-        txt = u"\xc7a-va? Et"
+        txt = "\xc7a-va? Et"
         self.test_data.index(txt)
 
         self.ctrl.Select(txt)
@@ -499,7 +499,7 @@ class DialogTestCases(unittest.TestCase):
         props = XMLHelpers.ReadPropertiesFromFile("test_output.xml")
         for i, ctrl in enumerate(props):
 
-            for key, ctrl_value in ctrl.items():
+            for key, ctrl_value in list(ctrl.items()):
                 expected_value = all_props[i][key]
                 
                 if "Image" in expected_value.__class__.__name__:

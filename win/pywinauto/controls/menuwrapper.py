@@ -30,11 +30,11 @@ __revision__ = "$Revision: 330 $"
 import ctypes
 import time
 
-from pywinauto import win32structures
-from pywinauto import win32functions
-from pywinauto import win32defines
-from pywinauto import findbestmatch
-from pywinauto.timings import Timings
+from .. import win32structures
+from .. import win32functions
+from .. import win32defines
+from .. import findbestmatch
+from ..timings import Timings
 
 
 class MenuItemNotEnabled(RuntimeError):
@@ -208,7 +208,7 @@ class MenuItem(object):
         x_pt = (rect.left + rect.right) /2
         y_pt = (rect.top + rect.bottom) /2
 
-        from HwndWrapper import _perform_click_input #, delay_after_menuselect
+        from .HwndWrapper import _perform_click_input #, delay_after_menuselect
 
         _perform_click_input(
             None,
@@ -275,7 +275,7 @@ class MenuItem(object):
 
     def __repr__(self):
         "Return a representation of the object as a string"
-        return "<MenuItem %s>" % `self.Text()`
+        return "<MenuItem %s>" % repr(self.Text())
 
 
 

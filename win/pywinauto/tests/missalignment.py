@@ -62,7 +62,7 @@ __revision__ = "$Revision: 221 $"
 
 testname = "Missalignment"
 
-from pywinauto.win32structures import RECT
+from ..win32structures import RECT
 
 #====================================================================
 def MissalignmentTest(windows):

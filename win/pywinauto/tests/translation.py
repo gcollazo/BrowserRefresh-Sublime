@@ -86,7 +86,7 @@ def TranslationTest(windows):
         untranTitles, untranIndices = _GetUntranslations(win)
 
         if untranTitles:
-            indicesAsString = ",".join([unicode(idx) for idx in untranIndices])
+            indicesAsString = ",".join([str(idx) for idx in untranIndices])
 
             bugs.append((
                 [win,],

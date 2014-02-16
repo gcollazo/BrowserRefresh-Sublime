@@ -26,7 +26,7 @@ import time
 
 import ctypes
 
-import HwndWrapper
+from . import HwndWrapper
 
 from pywinauto import win32functions
 from pywinauto import win32defines
@@ -272,7 +272,7 @@ class ComboBoxWrapper(HwndWrapper.HwndWrapper):
     #-----------------------------------------------------------
     def _get_item_index(self, ident):
         "Get the index for the item with this 'ident'"
-        if isinstance(ident, (int, long)):
+        if isinstance(ident, int):
 
             if ident >= self.ItemCount():
                 raise IndexError(
@@ -285,7 +285,7 @@ class ComboBoxWrapper(HwndWrapper.HwndWrapper):
                 # convert it to a positive index
                 ident = (self.ItemCount() + ident)
 
-        elif isinstance(ident, basestring):
+        elif isinstance(ident, str):
             # todo - implement fuzzy lookup for ComboBox items
             # todo - implement appdata lookup for combobox items
             ident = self.ItemTexts().index(ident)
@@ -416,7 +416,7 @@ class ListBoxWrapper(HwndWrapper.HwndWrapper):
     #-----------------------------------------------------------
     def _get_item_index(self, ident):
         "Return the index of the item 'ident'"
-        if isinstance(ident, (int, long)):
+        if isinstance(ident, int):
 
             if ident >= self.ItemCount():
                 raise IndexError(
@@ -428,7 +428,7 @@ class ListBoxWrapper(HwndWrapper.HwndWrapper):
             if ident < 0:
                 ident = (self.ItemCount() + ident)
 
-        elif isinstance(ident, basestring):
+        elif isinstance(ident, str):
             # todo - implement fuzzy lookup for ComboBox items
             # todo - implement appdata lookup for combobox items
             ident = self.ItemTexts().index(ident) #-1
@@ -578,7 +578,7 @@ class EditWrapper(HwndWrapper.HwndWrapper):
         text_len = self.LineLength(line_index)
         # create a buffer and set the length at the start of the buffer
         text = ctypes.create_unicode_buffer(text_len+3)
-        text[0] = unichr(text_len)
+        text[0] = chr(text_len)
 
         # retrieve the line itself
         self.SendMessage(
@@ -652,7 +652,7 @@ class EditWrapper(HwndWrapper.HwndWrapper):
             self.Select()
 
         # replace the selection with
-        text = ctypes.c_wchar_p(unicode(text))
+        text = ctypes.c_wchar_p(str(text))
         self.SendMessageTimeout(win32defines.EM_REPLACESEL, True, text)
 
         win32functions.WaitGuiThreadIdle(self)
@@ -671,7 +671,7 @@ class EditWrapper(HwndWrapper.HwndWrapper):
         self.VerifyActionable()
 
         # if we have been asked to select a string
-        if isinstance(start, basestring):
+        if isinstance(start, str):
             string_to_select = start
             #
             start = self.TextBlock().index(string_to_select)
@@ -873,8 +873,8 @@ class MFCWrapper(HwndWrapper.HwndWrapper):
         for attrib in ("accName", "accRoleName", "accState", "accValue"):
             try:
                 value = getattr(self.ao, attrib)()
-                print "XXXXX", value
-            except Exception, e:
+                print("XXXXX", value)
+            except Exception as e:
                 value = None
             
             self.aovals[attrib] = value

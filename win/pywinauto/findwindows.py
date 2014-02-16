@@ -28,13 +28,13 @@ import re
 
 import ctypes
 
-import win32functions
-import win32structures
-import handleprops
+from . import win32functions
+from . import win32structures
+from . import handleprops
 
-import findbestmatch
+from . import findbestmatch
 
-import controls
+from . import controls
 
 
 # todo: we should filter out invalid windows before returning
@@ -69,7 +69,7 @@ def find_window(**kwargs):
         exception =  WindowAmbiguousError(
             "There are %d windows that match the criteria %s"% (
             len(windows),
-            unicode(kwargs),
+            str(kwargs),
             )
         )
 

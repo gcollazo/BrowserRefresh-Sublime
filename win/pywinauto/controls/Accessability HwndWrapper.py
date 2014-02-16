@@ -49,7 +49,7 @@ from pywinauto import handleprops
 
 # also import MenuItemNotEnabled so that it is
 # accessible from HwndWrapper module
-from menuwrapper import Menu #, MenuItemNotEnabled
+from .menuwrapper import Menu #, MenuItemNotEnabled
 
 
 
@@ -64,7 +64,7 @@ def FindAccessabilityMenu(handle):
             # get the accessability role name
             try:
                 role = child.accRoleName()
-            except Exception, e:
+            except Exception as e:
                 # if it doesn't have a role name - then it is not a Menu
                 # and it can be skipped
                 continue
@@ -72,13 +72,13 @@ def FindAccessabilityMenu(handle):
             # get the accessability name
             try:
                 name = child.accName()
-            except Exception, e:
+            except Exception as e:
                 name = ""
                 
             # get how many children there are
             try:
                 child_count = child.accChildCount
-            except Exception, e:
+            except Exception as e:
                 name = ""
                 
             if role == "menu bar" and name != "System" and child_count:
@@ -93,7 +93,7 @@ def FindAccessabilityMenu(handle):
     
     return None
 
-import menuwrapper
+from . import menuwrapper
 
 class AccessabilityMenuItem(menuwrapper.Menu):
     def __init__(self, ctrl, index, ao_item):
@@ -124,7 +124,7 @@ class AccessabilityMenuItem(menuwrapper.Menu):
         pass
     def __repr__(self):
         "Return a representation of the object as a string"
-        return "<AOMenuItem %s>" % `self.Text()`
+        return "<AOMenuItem %s>" % repr(self.Text())
 
         
 class AccessabilityMenu(menuwrapper.Menu):
@@ -194,7 +194,7 @@ class _MetaWrapper(type):
         except KeyError:
             wrapper_match = None
 
-            for regex, wrapper in _MetaWrapper.re_wrappers.items():
+            for regex, wrapper in list(_MetaWrapper.re_wrappers.items()):
                 if regex.match(class_name):
                     wrapper_match = wrapper
                     _MetaWrapper.str_wrappers[class_name] = wrapper
@@ -204,7 +204,7 @@ class _MetaWrapper(type):
         # if it is a dialog then override the wrapper we found
         # and make it a DialogWrapper
         if handleprops.is_toplevel_window(handle):
-            import win32_controls
+            from . import win32_controls
             wrapper_match = win32_controls.DialogWrapper
 
         if wrapper_match is None:
@@ -218,7 +218,7 @@ class _MetaWrapper(type):
 
 
 #====================================================================
-class HwndWrapper(object):
+class HwndWrapper(object, metaclass=_MetaWrapper):
     """Default wrapper for controls.
 
     All other wrappers are derived from this.
@@ -235,8 +235,6 @@ class HwndWrapper(object):
     A HwndWrapper object can be passed directly to a ctypes wrapped
     C function - and it will get converted to a Long with the value of
     it's handle (see ctypes, _as_parameter_)"""
-
-    __metaclass__ = _MetaWrapper
 
     friendlyclassname = None
     windowclasses = []
@@ -338,7 +336,7 @@ class HwndWrapper(object):
     #-----------------------------------------------------------
     def Class(self):
         """Return the class name of the window"""
-        if not self._cache.has_key("class"):
+        if "class" not in self._cache:
             self._cache['class'] = handleprops.classname(self)
         return self._cache['class']
 
@@ -510,7 +508,7 @@ class HwndWrapper(object):
     def IsDialog(self):
         "Return true if the control is a top level window"
 
-        if not self._cache.has_key("isdialog"):
+        if "isdialog" not in self._cache:
             self._cache['isdialog'] = handleprops.is_toplevel_window(self)
 
         return self._cache['isdialog']
@@ -527,7 +525,7 @@ class HwndWrapper(object):
         HwndWrapper.TopLevelParent().
         """
 
-        if not self._cache.has_key("parent"):
+        if "parent" not in self._cache:
 
             parent_hwnd = handleprops.parent(self)
 
@@ -554,7 +552,7 @@ class HwndWrapper(object):
         a top level window already!)
         """
 
-        if not self._cache.has_key("top_level_parent"):
+        if "top_level_parent" not in self._cache:
 
             parent = self.Parent()
 
@@ -992,7 +990,7 @@ class HwndWrapper(object):
         if append:
             text = self.WindowText() + text
 
-        text = ctypes.c_wchar_p(unicode(text))
+        text = ctypes.c_wchar_p(str(text))
         self.PostMessage(win32defines.WM_SETTEXT, 0, text)
         win32functions.WaitGuiThreadIdle(self)
 
@@ -1051,7 +1049,7 @@ class HwndWrapper(object):
 
         # don't draw if dialog is not visible
 
-        dc = win32functions.CreateDC(u"DISPLAY", None, None, None )
+        dc = win32functions.CreateDC("DISPLAY", None, None, None )
 
         if not dc:
             raise ctypes.WinError()
@@ -1062,7 +1060,7 @@ class HwndWrapper(object):
         #    dc, rect.left, rect.top, unicode(text), len(text))
         ret = win32functions.DrawText(
             dc,
-            unicode(text),
+            str(text),
             len(text),
             ctypes.byref(rect),
             win32defines.DT_SINGLELINE)
@@ -1121,7 +1119,7 @@ class HwndWrapper(object):
         brush_handle = win32functions.CreateBrushIndirect(ctypes.byref(brush))
 
         # get the Device Context
-        dc = win32functions.CreateDC(u"DISPLAY", None, None, None )
+        dc = win32functions.CreateDC("DISPLAY", None, None, None )
 
         # push our objects into it
         win32functions.SelectObject(dc, brush_handle)

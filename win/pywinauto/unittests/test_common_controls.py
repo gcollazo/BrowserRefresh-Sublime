@@ -200,17 +200,17 @@ class ListViewTestCases(unittest.TestCase):
     def _testFocused(self):
         "Test checking the focus of some ListView items"
 
-        print "Select something quick!!"
+        print("Select something quick!!")
         import time
         time.sleep(3)
         #self.ctrl.Select(1)
 
-        print self.ctrl.IsFocused(0)
-        print self.ctrl.IsFocused(1)
-        print self.ctrl.IsFocused(2)
-        print self.ctrl.IsFocused(3)
-        print self.ctrl.IsFocused(4)
-        print self.ctrl.IsFocused(5)
+        print(self.ctrl.IsFocused(0))
+        print(self.ctrl.IsFocused(1))
+        print(self.ctrl.IsFocused(2))
+        print(self.ctrl.IsFocused(3))
+        print(self.ctrl.IsFocused(4))
+        print(self.ctrl.IsFocused(5))
         #for col in cols:
         #    print col
 
@@ -421,7 +421,7 @@ class HeaderTestCases(unittest.TestCase):
         app = Application()
         app.start_(controlspy_folder + "Header.exe")
 
-        self.texts = [u'Distance', u'Diameter', u'Mass']
+        self.texts = ['Distance', 'Diameter', 'Mass']
         self.item_rects = [
             RECT(0, 0, 90, 21),
             RECT(90, 0, 180, 21),
@@ -756,7 +756,7 @@ class ToolbarTestCases(unittest.TestCase):
     def testTexts(self):
         "Make sure the texts are set correctly"
         for txt in self.ctrl.Texts():
-            self.assertEquals (isinstance(txt, basestring), True)
+            self.assertEquals (isinstance(txt, str), True)
 
     def testGetProperties(self):
         "Test getting the properties for the toolbar control"
@@ -840,7 +840,7 @@ class RebarTestCases(unittest.TestCase):
     def testTexts(self):
         "Make sure the texts are set correctly"
         for txt in self.ctrl.Texts():
-            self.assertEquals (isinstance(txt, basestring), True)
+            self.assertEquals (isinstance(txt, str), True)
 
     def testBandCount(self):
         self.assertEquals(self.ctrl.BandCount(), 2)
@@ -868,7 +868,7 @@ class ToolTipsTestCases(unittest.TestCase):
         """Start the application set some data and ensure the application
         is in the state we want it."""
 
-        self.texts = [u'Tooltip Tool 0', u'Tooltip Tool 1', u'Tooltip Tool 2']
+        self.texts = ['Tooltip Tool 0', 'Tooltip Tool 1', 'Tooltip Tool 2']
 
         # start the application
         from pywinauto.application import Application
