@@ -78,7 +78,7 @@ except NameError:
     import sets
     set = sets.Set
     
-from pywinauto.win32defines import SS_NOPREFIX
+from ..win32defines import SS_NOPREFIX
 
 
 #-----------------------------------------------------------------------------
@@ -96,7 +96,7 @@ def RepeatedHotkeyTest(windows):
 
     bugs = []
     # for each hotkey
-    for char, controls in hotkeyControls.items():
+    for char, controls in list(hotkeyControls.items()):
 
         # if there is more than one control associated then it is a bug
         if len(controls) > 1:

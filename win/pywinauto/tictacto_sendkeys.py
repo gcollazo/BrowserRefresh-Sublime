@@ -1,7 +1,7 @@
 import os, sys, tempfile
 #import SendKeys
 #print SendKeys
-from SendKeysCtypes import SendKeys
+from .SendKeysCtypes import SendKeys
 import time
 
 try:
@@ -13,13 +13,13 @@ if __name__ == '__main__':
 
     # create file game will be saved to
     filename = tempfile.mktemp('.txt')
-    print >> sys.stdout, "saving tic-tac-toe game to `%s`" % filename
+    print("saving tic-tac-toe game to `%s`" % filename, file=sys.stdout)
     f = open(filename,'w')
     f.write('')
     f.close()
 
     # open notepad
-    print "openeing notepad"
+    print("openeing notepad")
     SendKeys("""{LWIN}r{PAUSE 1}Notepad.exe{SPACE}"%(filename)s"{ENTER}{PAUSE 1}"""
         % {'filename': filename.replace('~','{~}')}, 0.05, with_spaces=True,)
 
@@ -60,5 +60,5 @@ if __name__ == '__main__':
  O | x | x
 ---+---+---
  x | O | x"""
-    print 'Bad news: cat got the game'
-    print "Good news: that's what we expected, so the test passed"
+    print('Bad news: cat got the game')
+    print("Good news: that's what we expected, so the test passed")

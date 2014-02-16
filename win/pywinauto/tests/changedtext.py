@@ -86,7 +86,7 @@ def TextChangedTest(windows):
         changedTitles, changedIndices = _GetTranslations(win)
 
         if changedTitles:
-            indicesAsString = ",".join([unicode(idx) for idx in changedIndices])
+            indicesAsString = ",".join([str(idx) for idx in changedIndices])
 
             bugs.append((
                 [win,],

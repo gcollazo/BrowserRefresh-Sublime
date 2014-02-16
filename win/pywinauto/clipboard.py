@@ -24,8 +24,8 @@ __revision__ = "$Revision: 726 $"
 
 import ctypes
 
-import win32functions
-import win32defines
+from . import win32functions
+from . import win32defines
 
 #from ctypes.wintypes import *
 
@@ -34,7 +34,7 @@ import win32defines
 def _get_standard_formats():
     "Get the known formats by looking in win32defines"
     formats = {}
-    for define_name in win32defines.__dict__.keys():
+    for define_name in list(win32defines.__dict__.keys()):
         if define_name.startswith("CF_"):
             formats[getattr(win32defines, define_name)] = define_name
     return formats

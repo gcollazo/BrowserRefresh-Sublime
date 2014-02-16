@@ -271,7 +271,7 @@ CODES = {
     'ZOOM':          251,
 }
 # reverse the CODES dict to make it easy to look up a particular code name
-CODE_NAMES = dict((entry[1], entry[0]) for entry in CODES.items())
+CODE_NAMES = dict((entry[1], entry[0]) for entry in list(CODES.items()))
 
 # modifier keys
 MODIFIERS = {
@@ -297,8 +297,8 @@ class KeyAction(object):
 
     def __init__(self, key, down = True, up = True):
         self.key = key
-        if isinstance(self.key, basestring):
-            self.key = unicode(key)
+        if isinstance(self.key, str):
+            self.key = str(key)
         self.down = down
         self.up = up
 
@@ -538,14 +538,14 @@ def parse_keys(string,
         c = string[index]
         index += 1
         # check if one of CTRL, SHIFT, ALT has been pressed
-        if c in MODIFIERS.keys():
+        if c in list(MODIFIERS.keys()):
             modifier = MODIFIERS[c]
             # remember that we are currently modified
             modifiers.append(modifier)
             # hold down the modifier key
             keys.append(VirtualKeyAction(modifier, up = False))
             if DEBUG:
-                print("MODS+", modifiers)
+                print(("MODS+", modifiers))
             continue
 
         # Apply modifiers over a bunch of characters (not just one!)
@@ -602,7 +602,7 @@ def parse_keys(string,
         # as we have handled the text - release the modifiers
         while modifiers:
             if DEBUG:
-                print("MODS-", modifiers)
+                print(("MODS-", modifiers))
             keys.append(VirtualKeyAction(modifiers.pop(), down = False))
 
     # just in case there were any modifiers left pressed - release them
@@ -676,7 +676,7 @@ def main():
         ]
 
     for s in test_strings:
-        print(repr(s))
+        print((repr(s)))
         keys = parse_keys(s, with_newlines = True)
         print(keys)
 

@@ -208,7 +208,7 @@ def LoWord(value):
 #====================================================================
 def WaitGuiThreadIdle(handle, timeout = 1):
     "Wait until the thread of the specified handle is ready"
-    import win32defines
+    from . import win32defines
 
     process_id = ctypes.c_int()
     GetWindowThreadProcessId(handle, ctypes.byref(process_id))

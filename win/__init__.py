@@ -1,6 +1,6 @@
-from pywinauto.application import Application, ProcessNotFoundError
-from pywinauto.findwindows import WindowNotFoundError
-from pywinauto.controls.HwndWrapper import ControlNotVisible
+from .pywinauto.application import Application, ProcessNotFoundError
+from .pywinauto.findwindows import WindowNotFoundError
+from .pywinauto.controls.HwndWrapper import ControlNotVisible
 
 import platform
 import time
@@ -68,7 +68,6 @@ class WinBrowserRefresh:
         # We need to call find_windows on our own because Application.connect_ will
         # call find_window and throw if it finds more than one match.
         all_matches = pywinauto.findwindows.find_windows(title_re = title_regex)
-
         # We need to store all window handles that have been sent keys in order
         # to avoid reactivating windows and doing unnecesary refreshes. This is a
         # side effect of having to call Application.connect_ on each regex match.

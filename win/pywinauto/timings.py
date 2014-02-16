@@ -342,7 +342,7 @@ def WaitUntilPasses(
             break
         
         # An exception was raised - so wait and try again
-        except exceptions, e:
+        except exceptions as e:
         
             # find out how much of the time is left
             time_left = timeout - ( time.time() - start)

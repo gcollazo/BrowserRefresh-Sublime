@@ -81,7 +81,7 @@ testname = "AsianHotkeyFormat"
 
 import re
 
-from repeatedhotkey import ImplementsHotkey, GetHotkey
+from .repeatedhotkey import ImplementsHotkey, GetHotkey
 
 
 #-----------------------------------------------------------------------------

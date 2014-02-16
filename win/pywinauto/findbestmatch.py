@@ -25,7 +25,7 @@ __revision__ = "$Revision: 679 $"
 import re
 import difflib
 
-import fuzzydict
+from . import fuzzydict
 #import ctypes
 #import ldistance
 #levenshtein_distance = ctypes.cdll.levenshtein.levenshtein_distance
@@ -130,10 +130,10 @@ def find_best_match(search_text, item_texts, items, limit_ratio = .5):
         text_item_map[_cut_at_tab(text)] = item
 
     ratios, best_ratio, best_text = \
-        _get_match_ratios(text_item_map.keys(), search_text)
+        _get_match_ratios(list(text_item_map.keys()), search_text)
 
     if best_ratio < limit_ratio:
-        raise MatchError(items = text_item_map.keys(), tofind = search_text)
+        raise MatchError(items = list(text_item_map.keys()), tofind = search_text)
 
     return text_item_map[best_text]
 
@@ -142,8 +142,8 @@ def find_best_match(search_text, item_texts, items, limit_ratio = .5):
 
 
 #====================================================================
-_after_tab = re.compile(ur"\t.*", re.UNICODE)
-_non_word_chars = re.compile(ur"\W", re.UNICODE)
+_after_tab = re.compile(r"\t.*", re.UNICODE)
+_non_word_chars = re.compile(r"\W", re.UNICODE)
 
 def _cut_at_tab(text):
     "Clean out non characters from the string and return it"
@@ -466,7 +466,7 @@ def find_best_control_matches(search_text, controls):
 #        for name in ctrl_names:
 #            name_control_map[name] = ctrl
 
-    search_text = unicode(search_text)
+    search_text = str(search_text)
 
     best_ratio, best_texts = name_control_map.FindBestMatches(search_text)
 
@@ -494,7 +494,7 @@ def find_best_control_matches(search_text, controls):
         best_texts = best_texts_clean_ci
 
     if best_ratio < find_best_control_match_cutoff:
-        raise MatchError(items = name_control_map.keys(), tofind = search_text)
+        raise MatchError(items = list(name_control_map.keys()), tofind = search_text)
 
     return [name_control_map[best_text] for best_text in best_texts]
 

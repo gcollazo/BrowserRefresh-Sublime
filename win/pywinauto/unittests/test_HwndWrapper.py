@@ -43,7 +43,7 @@ except ImportError:
     import sys
 
     pywinauto_imp = "\\".join(__file__.split('\\')[:-3])
-    print "sdfdsf", pywinauto_imp
+    print("sdfdsf", pywinauto_imp)
     sys.path.append(pywinauto_imp)
     from pywinauto.controls.HwndWrapper import *
 
@@ -217,8 +217,8 @@ class HwndWrapperTests(unittest.TestCase):
         self.assertEqual(self.dlg.TopLevelParent(), self.dlg.handle)
 
     def testTexts(self):
-        self.assertEqual(self.dlg.Texts(), [u'Calculator'])
-        self.assertEqual(self.ctrl.Texts(), [u'Backspace'])
+        self.assertEqual(self.dlg.Texts(), ['Calculator'])
+        self.assertEqual(self.ctrl.Texts(), ['Backspace'])
         self.assertEqual(self.dlg.Edit.Texts(), ['0. ', "0. "])
 
     def testClientRects(self):
@@ -468,7 +468,7 @@ class HwndWrapperMouseTests(unittest.TestCase):
     def testMenuSelectNotepad_bug(self):
         "In notepad - MenuSelect Edit->Paste did not work"
 
-        text = u'Here are some unicode characters \xef\xfc\r\n'
+        text = 'Here are some unicode characters \xef\xfc\r\n'
         app2 = Application.start("notepad")
         app2.UntitledNotepad.Edit.SetEditText(text)
 

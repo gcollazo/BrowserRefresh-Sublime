@@ -25,13 +25,13 @@ __revision__ = "$Revision: 716 $"
 import time
 import ctypes
 
-from pywinauto import win32functions
-from pywinauto import win32defines
-from pywinauto import win32structures
-from pywinauto import findbestmatch
-import HwndWrapper
+from .. import win32functions
+from .. import win32defines
+from .. import win32structures
+from .. import findbestmatch
+from . import HwndWrapper
 
-from pywinauto.timings import Timings
+from ..timings import Timings
 
 class AccessDenied(RuntimeError):
     "Raised when we cannot allocate memory in the control's process"
@@ -72,7 +72,7 @@ class _RemoteMemoryBlock(object):
                 str(ctypes.WinError()) + "process: %d",
                 process_id.value)
 
-        if win32functions.GetVersion() < 2147483648L:
+        if win32functions.GetVersion() < 2147483648:
             self.memAddress = win32functions.VirtualAllocEx(
                 self.process,	# remote process
                 0,				# let Valloc decide where
@@ -329,7 +329,7 @@ class ListViewWrapper(HwndWrapper.HwndWrapper):
         list of item titles.
         """
         index = item
-        if isinstance(item, basestring):
+        if isinstance(item, str):
             index = (self.Texts().index(item) - 1) / self.ColumnCount()
 
         return index
@@ -745,7 +745,7 @@ class _treeview_element(object):
     def Children(self):
         "Return the direct children of this control"
         if self.Item().cChildren not in (0, 1):
-            print "##### not dealing with that TVN_GETDISPINFO stuff yet"
+            print("##### not dealing with that TVN_GETDISPINFO stuff yet")
             pass
 
         ## No children
@@ -823,10 +823,10 @@ class _treeview_element(object):
         #print child_spec
 
 
-        if isinstance(child_spec, basestring):
+        if isinstance(child_spec, str):
 
             texts = [c.Text() for c in self.Children()]
-            indices = range(0, len(texts))
+            indices = list(range(0, len(texts)))
             index = findbestmatch.find_best_match(
                 child_spec, texts, indices, limit_ratio = .6)
 
@@ -975,7 +975,7 @@ class TreeViewWrapper(HwndWrapper.HwndWrapper):
             return None
 
         # Ensure the path is absolute
-        if isinstance(path, basestring):
+        if isinstance(path, str):
             if not path.startswith("\\"):
                 raise RuntimeError(
                     "Only absolute paths allowed - "
@@ -991,7 +991,7 @@ class TreeViewWrapper(HwndWrapper.HwndWrapper):
 
         else:
             texts = [r.Text() for r in self.Roots()]
-            indices = range(0, len(texts))
+            indices = list(range(0, len(texts)))
             try:
                 current_elem = findbestmatch.find_best_match(
                     path[0], texts, self.Roots(), limit_ratio = .6)
@@ -1022,7 +1022,7 @@ class TreeViewWrapper(HwndWrapper.HwndWrapper):
             try:
                 current_elem = current_elem.GetChild(child_spec)
             except IndexError:
-                if isinstance(child_spec, basestring):
+                if isinstance(child_spec, str):
                     raise IndexError("Item '%s' does not have a child '%s'"%
                         (current_elem.Text(), child_spec))
                 else:
@@ -1587,7 +1587,7 @@ class TabControlWrapper(HwndWrapper.HwndWrapper):
 
         # if it's a string then find the index of
         # the tab with that text
-        if isinstance(tab, basestring):
+        if isinstance(tab, str):
             # find the string in the tab control
             best_text = findbestmatch.find_best_match(
                 tab, self.Texts(), self.Texts())
@@ -2002,7 +2002,7 @@ class ToolbarWrapper(HwndWrapper.HwndWrapper):
 #        warnings.warn(warning_msg, DeprecationWarning)
 
         texts = self.Texts()
-        if isinstance(button_identifier, basestring):
+        if isinstance(button_identifier, str):
 
             # one of these will be returned for the matching
             # text

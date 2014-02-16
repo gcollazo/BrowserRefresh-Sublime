@@ -42,11 +42,11 @@ except ImportError:
 import ctypes
 import re
 import PIL.Image
-import controls
+from . import controls
 
 # reported that they are not used - but in fact they are
 # through a search of globals()
-from win32structures import LOGFONTW, RECT
+from .win32structures import LOGFONTW, RECT
 
 class XMLParsingError(RuntimeError):
     "Wrap parsing Exceptions"
@@ -84,9 +84,9 @@ def _SetNodeProps(element, name, value):
             prop_name = prop_name[0]
             item_val = getattr(value, prop_name)
 
-            if isinstance(item_val, (int, long)):
+            if isinstance(item_val, int):
                 prop_name += "_LONG"
-                item_val = unicode(item_val)
+                item_val = str(item_val)
 
             struct_elem.set(prop_name, _EscapeSpecials(item_val))
 
@@ -126,14 +126,14 @@ def _SetNodeProps(element, name, value):
     elif isinstance(value, dict):
         dict_elem = SubElement(element, name)
 
-        for item_name, val in value.items():
+        for item_name, val in list(value.items()):
             _SetNodeProps(dict_elem, item_name, val)
 
     else:
         if isinstance(value, bool):
-            value = long(value)
+            value = int(value)
 
-        if isinstance(value, (int, long)):
+        if isinstance(value, int):
             name += "_LONG"
 
         element.set(name, _EscapeSpecials(value))
@@ -148,7 +148,7 @@ def WriteDialogToFile(filename, props):
     # if we are passed in a wrapped handle then
     # get the properties
     try:
-        props[0].keys()
+        list(props[0].keys())
     except (TypeError, AttributeError):
         props = controls.GetDialogPropsFromHandle(props)
 
@@ -171,14 +171,14 @@ def _EscapeSpecials(string):
     "Ensure that some characters are escaped before writing to XML"
 
     # ensure it is unicode
-    string = unicode(string)
+    string = str(string)
 
     # escape backslashs
     string = string.replace('\\', r'\\')
 
     # escape non printable characters (chars below 30)
     for i in range(0, 32):
-        string = string.replace(unichr(i), "\\%02d"%i)
+        string = string.replace(chr(i), "\\%02d"%i)
 
     return string
 
@@ -189,12 +189,12 @@ def _UnEscapeSpecials(string):
 
     # Unescape all the escape characters
     for i in range(0, 32):
-        string = string.replace("\\%02d"%i, unichr(i))
+        string = string.replace("\\%02d"%i, chr(i))
 
     # convert doubled backslashes to a single backslash
     string = string.replace(r'\\', '\\')
 
-    return unicode(string)
+    return str(string)
 
 
 
@@ -232,13 +232,13 @@ def _XMLToStruct(element, struct_type = None):
         # if the value ends with "_long"
         if prop_name.endswith("_LONG"):
             # get an long attribute out of the value
-            val = long(val)
+            val = int(val)
             prop_name = prop_name[:-5]
 
         # if the value is a string
-        elif isinstance(val, basestring):
+        elif isinstance(val, str):
             # make sure it if Unicode
-            val = unicode(val)
+            val = str(val)
 
         # now we can have all upper case attribute name
         # but structure name will not be upper case
@@ -257,7 +257,7 @@ def _XMLToStruct(element, struct_type = None):
 def _OLD_XMLToTitles(element):
     "For OLD XML files convert the titles as a list"
     # get all the attribute names
-    title_names = element.keys()
+    title_names = list(element.keys())
 
     # sort them to make sure we get them in the right order
     title_names.sort()
@@ -270,7 +270,7 @@ def _OLD_XMLToTitles(element):
         val = val.replace('\\x12', '\x12')
         val = val.replace('\\\\', '\\')
 
-        titles.append(unicode(val))
+        titles.append(str(val))
 
     return titles
 
@@ -333,11 +333,11 @@ def _GetAttributes(element):
     properties = {}
 
     # get all the attributes
-    for attrib_name, val in element.attrib.items():
+    for attrib_name, val in list(element.attrib.items()):
 
         # if it is 'Long' element convert it to an long
         if attrib_name.endswith("_LONG"):
-            val = long(val)
+            val = int(val)
             attrib_name = attrib_name[:-5]
 
         else:
@@ -457,7 +457,7 @@ def ReadPropertiesFromFile(filename):
 
 
     # it is an old XML so let's fix it up a little
-    if not parsed.attrib.has_key("_version_"):
+    if "_version_" not in parsed.attrib:
 
         # find each of the control elements
         for ctrl_prop in props:

@@ -166,10 +166,10 @@ class handlepropsTestCases(unittest.TestCase):
     def test_font(self):
         "Make sure the friendly class is set correctly"
         dlgfont = font(self.dlghandle)
-        self.assertEquals(True, isinstance(dlgfont.lfFaceName, basestring))
+        self.assertEquals(True, isinstance(dlgfont.lfFaceName, str))
 
         editfont = font(self.edit_handle)
-        self.assertEquals(True, isinstance(editfont.lfFaceName, basestring))
+        self.assertEquals(True, isinstance(editfont.lfFaceName, str))
 
 
     def test_processid(self):
@@ -224,12 +224,12 @@ class handlepropsTestCases(unittest.TestCase):
         "Make sure the friendly class is set correctly"
         dlgdump = dumpwindow(self.dlghandle)
 
-        for key, item in dlgdump.items():
+        for key, item in list(dlgdump.items()):
             self.assertEquals(item, globals()[key](self.dlghandle))
 
         editdump = dumpwindow(self.edit_handle)
 
-        for key, item in editdump.items():
+        for key, item in list(editdump.items()):
             self.assertEquals(item, globals()[key](self.edit_handle))
 
 

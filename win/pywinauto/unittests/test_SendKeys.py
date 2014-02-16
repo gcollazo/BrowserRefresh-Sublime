@@ -69,7 +69,7 @@ class SendKeysTests(unittest.TestCase):
                 continue
 
             SendKeys(chr(i) + "{ENTER}", pause = .001, **args)
-            received = raw_input()
+            received = input()
 
             self.assertEquals(i, ord(received))
 
@@ -85,13 +85,13 @@ class SendKeysTests(unittest.TestCase):
     def testSpaceWithSpaces(self):
         "Make sure that with spaces option works"
         SendKeys(" \t \t {ENTER}", pause = .001, with_spaces = True)
-        received = raw_input()
+        received = input()
         self.assertEquals("   ", received)
 
     def testSpaceWithoutSpaces(self):
         "Make sure that with spaces option works"
         SendKeys(" \t \t {ENTER}", pause = .001, with_spaces = False)
-        received = raw_input()
+        received = input()
         self.assertEquals("", received)
 
 
@@ -107,20 +107,20 @@ class SendKeysTests(unittest.TestCase):
     def testTabWithTabs(self):
         "Make sure that with spaces option works"
         SendKeys("\t \t \t{ENTER}", pause = .1, with_tabs = True)
-        received = raw_input()
+        received = input()
         self.assertEquals("\t\t\t", received)
 
     def testTabWithoutTabs(self):
         "Make sure that with spaces option works"
         SendKeys("\t a\t b\t{ENTER}", pause = .1, with_tabs = False)
-        received = raw_input()
+        received = input()
         self.assertEquals("ab", received)
 
 
     def testTab(self):
         "Make sure that with spaces option works"
         SendKeys("{TAB}  {TAB} {ENTER}", pause = .3)
-        received = raw_input()
+        received = input()
         self.assertEquals("\t\t", received)
 
 
@@ -137,19 +137,19 @@ class SendKeysTests(unittest.TestCase):
     def testNewlinesWithNewlines(self):
         "Make sure that with spaces option works"
         SendKeys("\t \t \t a~\tb\nc{ENTER}", pause = .1, with_newlines = True)
-        received = raw_input()
+        received = input()
         self.assertEquals("a", received)
         
-        received = raw_input()
+        received = input()
         self.assertEquals("b", received)
 
-        received = raw_input()
+        received = input()
         self.assertEquals("c", received)
 
     def testNewlinesWithoutNewlines(self):
         "Make sure that with spaces option works"
         SendKeys("\t \t \t\na{ENTER}", pause = .01, with_newlines = False)
-        received = raw_input()
+        received = input()
         self.assertEquals("a", received)
 
 
@@ -157,17 +157,17 @@ class SendKeysTests(unittest.TestCase):
         "Make sure that sending any character in range "
         os.system("chcp 850")
         matched = 0
-        extended_chars = u"äëïöüáéíóúâêîôûàèìòùãõñıç"
+        extended_chars = "äëïöüáéíóúâêîôûàèìòùãõñıç"
         for char in extended_chars:
 
             SendKeys(char + "{ENTER}", pause = .01)
-            received = raw_input().decode("cp850")
+            received = input().decode("cp850")
 
             if char == received:
                 matched += 1
             else:
-                print "expected %s, recieved %s"% (
-                    repr(char), repr(received))
+                print("expected %s, recieved %s"% (
+                    repr(char), repr(received)))
 
         self.assertEquals(matched, len(extended_chars))
 

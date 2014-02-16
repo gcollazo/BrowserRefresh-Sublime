@@ -34,7 +34,7 @@ def run_tests(controls, tests_to_run = None, test_visible_only = True):
 
     # if no tests specified run them all
     if tests_to_run is None:
-        tests_to_run = _registered.keys()
+        tests_to_run = list(_registered.keys())
 
     # Filter out hidden controls if requested
     if test_visible_only:
@@ -55,14 +55,14 @@ def get_bug_as_string(bug):
     header = ["BugType:", str(bug_type), str(is_in_ref)]
 
     for i in info:
-        header.append(unicode(i))
-        header.append(unicode(info[i]))
+        header.append(str(i))
+        header.append(str(info[i]))
     
     lines = []
     lines.append(" ".join(header))
     
     for i, ctrl in enumerate(ctrls):
-        lines.append(u'\t"%s" "%s" (%d %d %d %d) Vis: %d'% (
+        lines.append('\t"%s" "%s" (%d %d %d %d) Vis: %d'% (
             ctrl.WindowText(),
             ctrl.FriendlyClassName(),
             ctrl.Rectangle().left,
@@ -71,7 +71,7 @@ def get_bug_as_string(bug):
             ctrl.Rectangle().bottom,
             ctrl.IsVisible(),))
     
-    return u"\n".join(lines)
+    return "\n".join(lines)
 
 
 def write_bugs(bugs, filename = "BugsOutput.txt"):
@@ -84,22 +84,22 @@ def write_bugs(bugs, filename = "BugsOutput.txt"):
 def print_bugs(bugs):
     "Print the bugs"
     for (ctrls, info, bug_type, is_in_ref) in bugs:
-        print "BugType:", bug_type, is_in_ref,
+        print("BugType:", bug_type, is_in_ref, end=' ')
 
         for i in info:
-            print unicode(i).encode('utf-8'), unicode(info[i]).encode('utf-8'),
-        print
+            print(str(i).encode('utf-8'), str(info[i]).encode('utf-8'), end=' ')
+        print()
 
 
         for i, ctrl in enumerate(ctrls):
-            print '\t"%s" "%s" (%d %d %d %d) Vis: %d'% (
+            print('\t"%s" "%s" (%d %d %d %d) Vis: %d'% (
                 ctrl.WindowText().encode('utf-8'),
                 ctrl.FriendlyClassName().encode('utf-8'),
                 ctrl.Rectangle().left,
                 ctrl.Rectangle().top,
                 ctrl.Rectangle().right,
                 ctrl.Rectangle().bottom,
-                ctrl.IsVisible(),)
+                ctrl.IsVisible(),))
 
             try:
                 ctrl.DrawOutline()
@@ -107,7 +107,7 @@ def print_bugs(bugs):
                 #print e
                 pass
 
-        print
+        print()
 
 
 # we need to register the modules
@@ -134,7 +134,7 @@ def __init_tests():
 
     for test_name in standard_test_names:
 
-        test_module = __import__(test_name.lower(), globals(), locals())
+        test_module = __import__(test_name.lower(), globals(), locals(), [], 1)
 
         # class name is the test name + "Test"
         test_class = getattr(test_module, test_name + "Test")

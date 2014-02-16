@@ -22,7 +22,7 @@
 
 __revision__ = "$Revision: 560 $"
 
-from win32defines import LF_FACESIZE, NMTTDISPINFOW_V1_SIZE, HDITEMW_V1_SIZE
+from .win32defines import LF_FACESIZE, NMTTDISPINFOW_V1_SIZE, HDITEMW_V1_SIZE
 
 import ctypes
 from ctypes import \
@@ -179,10 +179,10 @@ class RECT(Structure):
         else:
             #if not isinstance(otherRect_or_left, (int, long)):
             #    print type(self), type(otherRect_or_left), otherRect_or_left
-            self.left = long(otherRect_or_left)
-            self.right = long(right)
-            self.top = long(top)
-            self.bottom = long(bottom)
+            self.left = int(otherRect_or_left)
+            self.right = int(right)
+            self.top = int(top)
+            self.bottom = int(bottom)
 
 
 #    #----------------------------------------------------------------

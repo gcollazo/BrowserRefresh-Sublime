@@ -117,7 +117,7 @@ class ApplicationTestCases(unittest.TestCase):
         app_name = r"I am not * and Application!/\.exe"
         try:
             app.start_(app_name)
-        except AppStartError, e:
+        except AppStartError as e:
             self.assertEquals(app_name in str(e), True)
 
 
@@ -333,7 +333,7 @@ class ApplicationTestCases(unittest.TestCase):
             app['blahblah']['not here'].__getitem__, 'handle')
 
         self.assertEqual(
-            app[u'Unt\xeftledNotepad'].handle,
+            app['Unt\xeftledNotepad'].handle,
             app.window_(title = "Untitled - Notepad").handle)
 
         app.UntitledNotepad.MenuSelect("File->Page Setup")
@@ -422,13 +422,13 @@ class WindowSpecificationTestCases(unittest.TestCase):
 
         wspec = WindowSpecification(
             dict(
-                best_match = u"UntitledNotepad",
+                best_match = "UntitledNotepad",
                 process = self.app.process)
             )
 
         self.assertEquals(
             wspec.WindowText(),
-            u"Untitled - Notepad")
+            "Untitled - Notepad")
 
 
     def test__call__(self):
@@ -438,7 +438,7 @@ class WindowSpecificationTestCases(unittest.TestCase):
 
         # no best_match!
         wspec = WindowSpecification(
-            dict(title = u"blah", process = self.app.process) )
+            dict(title = "blah", process = self.app.process) )
 
         self.assertRaises(AttributeError, wspec)
 

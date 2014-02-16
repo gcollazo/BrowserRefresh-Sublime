@@ -28,42 +28,20 @@ __revision__ = "$Revision: 727 $"
 
 import ctypes
 
-import win32functions
-import win32defines
-import win32structures
+from . import win32functions
+from . import win32defines
+from . import win32structures
 
-import findwindows # for children
+# from . import findwindows # for children
 
 
 #=========================================================================
 def text(handle):
     "Return the text of the window"
-
-    length = ctypes.c_long()
-    win32functions.SendMessageTimeout(
-        handle,
-        win32defines.WM_GETTEXTLENGTH,
-        0,
-        0,
-        win32defines.SMTO_ABORTIFHUNG,
-        100,  # .1 of a second
-        ctypes.byref(length))
-
-    length = length.value
-
-    textval = ''
-    if length:
-        length += 1
-
-        buffer_ = ctypes.create_unicode_buffer(length)
-
-        ret = win32functions.SendMessage(
-            handle, win32defines.WM_GETTEXT, length, ctypes.byref(buffer_))
-
-        if ret:
-            textval = buffer_.value
-
-    return textval
+    length = win32functions.GetWindowTextLength(handle)
+    buff = ctypes.create_unicode_buffer(length + 1)
+    win32functions.GetWindowText(handle, buff, length + 1)
+    return buff.value
 
 #=========================================================================
 def classname(handle):
