@@ -83,7 +83,6 @@ class BrowserRefreshCommand(sublime_plugin.TextCommand):
             refresher.chrome()
             refresher.safari()
             refresher.firefox()
-            refresher.palemoon()
             refresher.opera()
 
             if _os == 'Darwin':
@@ -94,3 +93,4 @@ class BrowserRefreshCommand(sublime_plugin.TextCommand):
             if _os == 'Windows':
                 refresher.ie()
                 refresher.iron()
+                refresher.palemoon()
