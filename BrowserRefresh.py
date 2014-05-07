@@ -48,7 +48,7 @@ class BrowserRefreshCommand(sublime_plugin.TextCommand):
             import time
             time.sleep(delay)
 
-        # Actually refresh browsers
+        # Actually refresh browsers 
         if browser_name == 'Google Chrome':
             refresher.chrome()
 
@@ -75,7 +75,10 @@ class BrowserRefreshCommand(sublime_plugin.TextCommand):
 
         elif browser_name == 'Iron' and _os == 'Windows':
             refresher.iron()
-
+            
+        elif browser_name == 'Pale Moon' and _os == 'Windows':
+            refresher.palemoon()
+            
         elif browser_name == 'all':
             refresher.chrome()
             refresher.safari()
@@ -90,3 +93,4 @@ class BrowserRefreshCommand(sublime_plugin.TextCommand):
             if _os == 'Windows':
                 refresher.ie()
                 refresher.iron()
+                refresher.palemoon()
