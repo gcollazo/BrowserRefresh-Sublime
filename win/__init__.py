@@ -50,6 +50,12 @@ class WinBrowserRefresh:
         except WindowNotFoundError:
             pass
 
+    def palemoon(self):
+        try:
+            self.SendKeysToAllWindows('.*Pale Moon')
+        except WindowNotFoundError:
+            pass
+            
     def opera(self):
         try:
             self.SendKeysToAllWindows('.*Opera')
