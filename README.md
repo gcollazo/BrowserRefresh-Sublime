@@ -53,7 +53,7 @@ Adds a delay (in seconds) before triggering the refresh. Seems to be useful if y
 If set to `true` when you press the keys it will bring the browser to the foreground. **Note:** On Windows this setting is always `true`.
 
 **browser_name**  
-Specify which browser to use. The default is `all` which will try to refresh all running browser on your system. You can change to be more specific: `Google Chrome`, `Google Chrome Canary`, `Safari`, `WebKit`, `Firefox`, `Opera`, `IE`, `Iron`, `Yandex`.
+Specify which browser to use. The default is `all` which will try to refresh all running browser on your system. You can change to be more specific: `Google Chrome`, `Google Chrome Canary`, `Safari`, `WebKit`, `Firefox`, `Opera`, `IE`, `Iron`, `Yandex`, `Pale Moon`.
 
 **Note**: on Windows use `Google Chrome` if you want to use Canary, because at the moment it's very hard to distinguish between them as both report themselves as Chrome. This also means that if you have both Chrome and Canary running, it will refresh the active tab on both browsers.
 
@@ -67,6 +67,7 @@ Specify which browser to use. The default is `all` which will try to refresh all
 - Internet Explorer (Win)
 - SRWare Iron (Win)
 - Yandex (Mac)
+- Pale Moon (Win)
 
 ## Contributions
 If you have the time to make this plugin better feel free to fork and submit a pull request.
