@@ -40,7 +40,7 @@ class LinuxBrowserRefresh:
         cmd = ['xdotool', 'search', '--sync', '--onlyvisible', '--class', cls, 'key', key]
 
         if self.activate_browser:
-            cmd += ['windowactivate']
+            cmd += ['&&', 'xdotool','search','--desktop', '0' ,'Sublime Text' ,'windowactivate']
 
         status_code = call(cmd)
 
