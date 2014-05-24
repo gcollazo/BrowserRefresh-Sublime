@@ -184,7 +184,7 @@ class TimeConfig(object):
                     min(1, TimeConfig._timings[setting])
 
             if "_wait" in setting:
-                TimeConfig._timings[setting] = TimeConfig._timings[setting] / 2
+                TimeConfig._timings[setting] = TimeConfig._timings[setting] // 2
 
             elif setting.endswith("_retry"):
                 TimeConfig._timings[setting] = 0.001
