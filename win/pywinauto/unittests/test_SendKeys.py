@@ -27,10 +27,10 @@
 >>> print val
 a
 >>>
->>> SendKeys(u"ä\\r\\n")
+>>> SendKeys(u"Ã¤\\r\\n")
 >>> val = raw_input()
 >>> print val
-ä
+Ã¤
 >>>
 
 """
@@ -157,7 +157,7 @@ class SendKeysTests(unittest.TestCase):
         "Make sure that sending any character in range "
         os.system("chcp 850")
         matched = 0
-        extended_chars = "äëïöüáéíóúâêîôûàèìòùãõñıç"
+        extended_chars = "Ã¤Ã«Ã¯Ã¶Ã¼Ã¡Ã©Ã­Ã³ÃºÃ¢ÃªÃ®Ã´Ã»Ã Ã¨Ã¬Ã²Ã¹Ã£ÃµÃ±Ã½Ã§"
         for char in extended_chars:
 
             SendKeys(char + "{ENTER}", pause = .01)
