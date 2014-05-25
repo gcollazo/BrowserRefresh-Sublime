@@ -1634,9 +1634,9 @@ def _perform_click_input(
 
     # set the default coordinates
     if coords[0] is None:
-        coords[0] = ctrl.Rectangle().width() / 2
+        coords[0] = ctrl.Rectangle().width() // 2
     if coords[1] is None:
-        coords[1] = ctrl.Rectangle().height() / 2
+        coords[1] = ctrl.Rectangle().height() // 2
 
     if not absolute:
         coords[0] = coords[0] + ctrl.Rectangle().left

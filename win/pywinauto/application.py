@@ -1189,7 +1189,7 @@ def process_from_module(module):
 
     modules = []
     # Get the process names
-    for i in range(0, bytes_returned.value / ctypes.sizeof(ctypes.c_int)):
+    for i in range(0, bytes_returned.value // ctypes.sizeof(ctypes.c_int)):
         try:
             modules.append((processes[i], process_module(processes[i])))
         except ProcessNotFoundError:
