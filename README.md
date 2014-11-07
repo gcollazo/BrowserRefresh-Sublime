@@ -57,6 +57,21 @@ Specify which browser to use. The default is `all` which will try to refresh all
 
 **Note**: on Windows use `Google Chrome` if you want to use Canary, because at the moment it's very hard to distinguish between them as both report themselves as Chrome. This also means that if you have both Chrome and Canary running, it will refresh the active tab on both browsers.
 
+**Simple Trick**
+Nearly 90% of the time this plugin would be used for Front-End development in which case you would have to save a file to see the change, so setting this plugin's keyboard shortcut to CTRL+S and CTRL+S, meaning you press CTRL+S twice repeatedly would just make your life a little easier. The first time you press CTRL+S the file will be save and the second time it will be opened in the browser of your choice. 
+You can do this by changing:
+```json
+"keys": ["command+shift+r"], "command": "browser_refresh", "args": {
+    // Rest of the Code
+}
+```
+TO
+```json
+"keys": ["ctrl+s", "ctrl+s"], "command": "browser_refresh", "args": {
+    // Rest of the Code
+}
+```
+
 ## Supported Browsers
 - Google Chrome (Mac, Win, Linux)
 - Google Chrome Canary (Mac, Win - see note above)
