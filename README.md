@@ -44,7 +44,7 @@ You need to add the following to your `Key Bindings - User`. Go to `Preferences 
 ```
 
 **auto_save**  
-If set to `true` you current file in Sublime Text will be save before refreshing the browser window.
+If set to `true` you current file in Sublime Text will be saved before refreshing the browser window.
 
 **delay**  
 Adds a delay (in seconds) before triggering the refresh. Seems to be useful if you are using a CSS or JavaScript pre-processor. The default is 0.0 seconds. 
