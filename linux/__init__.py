@@ -37,7 +37,7 @@ class LinuxBrowserRefresh:
     def SendKeysToAllWindows(self, cls, key):
         "Sends the keystroke to all windows whose title matches the regex"
 
-        cmd = ['xdotool', 'search', '--sync', '--onlyvisible', '--class', cls, 'key', key]
+        cmd = ['xdotool', 'search', '--sync', '--onlyvisible', '--class', cls, 'windowfocus', 'key', key]
 
         if self.activate_browser:
             cmd += ['windowactivate']
