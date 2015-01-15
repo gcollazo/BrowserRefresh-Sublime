@@ -3,17 +3,17 @@
 After installing this plugin you can hit `command + shift + r` on Mac OS X or `ctrl + shift + r` on Windows and Linux while using your favorite browser, the last active window will come to the foreground *(you can turn this off in Chrome, Canary, Safari, WebKit and Yandex on Mac)* and reload the active tab. If the current file is unsaved, it will be saved before the browser is activated and reloaded.
 
 ### 1. Install the package
-**With the Package Control plugin**  
+**With the Package Control plugin**
 The easiest way to install **Browser Refresh** is through Package Control, which can be found at [http://wbond.net/sublime_packages/package_control](http://wbond.net/sublime_packages/package_control).
 
 ```
 Using Package Manager search for "Browser Refresh"
 ```
 
-**Without Git**  
+**Without Git**
 Download the latest source from GitHub and copy the BrowserRefresh folder to your Sublime Text "Packages" directory.
 
-**With Git**  
+**With Git**
 Clone the repository in your Sublime Text "Packages" directory:
 
 ```
@@ -43,17 +43,17 @@ You need to add the following to your `Key Bindings - User`. Go to `Preferences 
 ]
 ```
 
-**auto_save**  
+**auto_save**
 If set to `true` you current file in Sublime Text will be save before refreshing the browser window.
 
-**delay**  
-Adds a delay (in seconds) before triggering the refresh. Seems to be useful if you are using a CSS or JavaScript pre-processor. The default is 0.0 seconds. 
+**delay**
+Adds a delay (in seconds) before triggering the refresh. Seems to be useful if you are using a CSS or JavaScript pre-processor. The default is 0.0 seconds.
 
-**activate_browser**  
+**activate_browser**
 If set to `true` when you press the keys it will bring the browser to the foreground. **Note:** On Windows this setting is always `true`.
 
-**browser_name**  
-Specify which browser to use. The default is `all` which will try to refresh all running browser on your system. You can change to be more specific: `Google Chrome`, `Google Chrome Canary`, `Safari`, `WebKit`, `Firefox`, `Opera`, `IE`, `Iron`, `Yandex`, `Pale Moon`.
+**browser_name**
+Specify which browser to use. The default is `all` which will try to refresh all running browser on your system. You can change to be more specific: `Google Chrome`, `Google Chrome Canary`, `Safari`, `WebKit`, `Firefox`, `Firefox Developer Edition`, `Opera`, `IE`, `Iron`, `Yandex`, `Pale Moon`.
 
 **Note**: on Windows use `Google Chrome` if you want to use Canary, because at the moment it's very hard to distinguish between them as both report themselves as Chrome. This also means that if you have both Chrome and Canary running, it will refresh the active tab on both browsers.
 
@@ -63,6 +63,7 @@ Specify which browser to use. The default is `all` which will try to refresh all
 - Safari (Mac, Win)
 - WebKit (Mac)
 - Firefox (Mac, Win, Linux)
+- Firefox Developer Edition (Mac)
 - Opera (Mac, Win)
 - Internet Explorer (Win)
 - SRWare Iron (Win)
