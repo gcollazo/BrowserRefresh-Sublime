@@ -18,6 +18,9 @@ def running_browsers():
     if re.search(b'Firefox\.app', ps) is not None:
         running_browsers.append('firefox')
 
+    if re.search(b'FirefoxDeveloperEdition\.app', ps) is not None:
+        running_browsers.append('firefox-dev')
+
     if re.search(b'com\.apple\.WebKit\.WebContent\n', ps) is not None or \
         re.search(b'Safari.app\/Contents\/MacOS\/Safari\ ', ps) is not None:
             running_browsers.append('safari')

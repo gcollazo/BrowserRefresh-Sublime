@@ -33,6 +33,7 @@ class BrowserRefreshCommand(sublime_plugin.TextCommand):
         if _os == 'Darwin':
             from mac import MacBrowserRefresh
             from mac.utils import running_browsers
+            print(running_browsers())
             refresher = MacBrowserRefresh(activate_browser, running_browsers())
         elif _os == 'Windows':
             from win import WinBrowserRefresh
@@ -48,7 +49,7 @@ class BrowserRefreshCommand(sublime_plugin.TextCommand):
             import time
             time.sleep(delay)
 
-        # Actually refresh browsers 
+        # Actually refresh browsers
         if browser_name == 'Google Chrome':
             refresher.chrome()
 
@@ -67,6 +68,9 @@ class BrowserRefreshCommand(sublime_plugin.TextCommand):
         elif browser_name == 'Firefox':
             refresher.firefox()
 
+        elif browser_name == 'Firefox Developer Edition' and _os == 'Darwin':
+            refresher.firefox_dev()
+
         elif browser_name == 'Opera':
             refresher.opera()
 
@@ -75,10 +79,10 @@ class BrowserRefreshCommand(sublime_plugin.TextCommand):
 
         elif browser_name == 'Iron' and _os == 'Windows':
             refresher.iron()
-            
+
         elif browser_name == 'Pale Moon' and _os == 'Windows':
             refresher.palemoon()
-            
+
         elif browser_name == 'all':
             refresher.chrome()
             refresher.safari()
@@ -89,6 +93,7 @@ class BrowserRefreshCommand(sublime_plugin.TextCommand):
                 refresher.canary()
                 refresher.yandex()
                 refresher.webkit()
+                refresher.firefox_dev()
 
             if _os == 'Windows':
                 refresher.ie()

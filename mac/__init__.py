@@ -72,6 +72,17 @@ class MacBrowserRefresh:
         if 'firefox' in self.browsers:
             self._call_applescript(command)
 
+    def firefox_dev(self):
+        command = """
+            tell application "FirefoxDeveloperEdition"
+                activate
+                tell application "System Events" to keystroke "r" using command down
+            end tell
+            """
+
+        if 'firefox-dev' in self.browsers:
+            self._call_applescript(command)
+
     def opera(self):
         command = """
             tell application "Opera"
