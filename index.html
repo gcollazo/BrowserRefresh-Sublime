@@ -1,57 +1,58 @@
-<!doctype html>
-<html>
+<!DOCTYPE html>
+<html lang="en-us">
   <head>
-    <meta charset="utf-8">
-    <meta http-equiv="X-UA-Compatible" content="chrome=1">
+    <meta charset="UTF-8">
     <title>Browser Refresh by gcollazo</title>
-
-    <link rel="stylesheet" href="stylesheets/styles.css">
-    <link rel="stylesheet" href="stylesheets/pygment_trac.css">
-    <script src="javascripts/scale.fix.js"></script>
-    <meta name="viewport" content="width=device-width, initial-scale=1, user-scalable=no">
-
-    <!--[if lt IE 9]>
-    <script src="//html5shiv.googlecode.com/svn/trunk/html5.js"></script>
-    <![endif]-->
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <link rel="stylesheet" type="text/css" href="stylesheets/normalize.css" media="screen">
+    <link href='http://fonts.googleapis.com/css?family=Open+Sans:400,700' rel='stylesheet' type='text/css'>
+    <link rel="stylesheet" type="text/css" href="stylesheets/stylesheet.css" media="screen">
+    <link rel="stylesheet" type="text/css" href="stylesheets/github-light.css" media="screen">
   </head>
   <body>
-    <div class="wrapper">
-      <header>
-        <h1>Browser Refresh</h1>
-        <p>Save the file you are working on and refresh your browser with one keystroke</p>
-        <p class="view"><a href="https://github.com/gcollazo/BrowserRefresh-Sublime">View the Project on GitHub <small>gcollazo/BrowserRefresh-Sublime</small></a></p>
-        <ul>
-          <li><a href="https://github.com/gcollazo/BrowserRefresh-Sublime/zipball/master">Download <strong>ZIP File</strong></a></li>
-          <li><a href="https://github.com/gcollazo/BrowserRefresh-Sublime/tarball/master">Download <strong>TAR Ball</strong></a></li>
-          <li><a href="https://github.com/gcollazo/BrowserRefresh-Sublime">View On <strong>GitHub</strong></a></li>
-        </ul>
-      </header>
-      <section>
-        <h1>
-<a name="browser-refresh-for-sublime-text" class="anchor" href="#browser-refresh-for-sublime-text"><span class="octicon octicon-link"></span></a>Browser Refresh for Sublime Text</h1>
+    <section class="page-header">
+      <h1 class="project-name">Browser Refresh</h1>
+      <h2 class="project-tagline">Save the file you are working on and refresh your browser with one keystroke</h2>
+      <a href="https://github.com/gcollazo/BrowserRefresh-Sublime" class="btn">View on GitHub</a>
+      <a href="https://github.com/gcollazo/BrowserRefresh-Sublime/zipball/master" class="btn">Download .zip</a>
+      <a href="https://github.com/gcollazo/BrowserRefresh-Sublime/tarball/master" class="btn">Download .tar.gz</a>
+    </section>
 
-<p>After installing this plugin you can hit <code>command + shift + r</code> on Mac OS X or <code>ctrl + shift + r</code> on Windows and Linux while using your favorite browser, the last active window will come to the foreground <em>(you can turn this off in Chrome, Canary, Safari, WebKit and Yandex on Mac)</em> and reload the active tab. If the current file is unsaved, it will be saved before the browser is activated and reloaded.</p>
+    <section class="main-content">
+      <h1>
+<a id="browser-refresh-for-sublime-text" class="anchor" href="#browser-refresh-for-sublime-text" aria-hidden="true"><span class="octicon octicon-link"></span></a>Browser Refresh for Sublime Text</h1>
+
+<p>This plugin adds a keyboard shortcut to Sublime Text that will refresh the browser of your choice. Optionally the plugin can "auto save" your current file and bring the desired browser to the foreground.</p>
+
+<p>The default keyboard shortcuts are:</p>
+
+<ul>
+<li>
+<strong>⌘ + Shift + R</strong> (Mac)</li>
+<li>
+<strong>Ctrl + Shift + R</strong> (Windows, Linux)</li>
+</ul>
 
 <h3>
-<a name="1-install-the-package" class="anchor" href="#1-install-the-package"><span class="octicon octicon-link"></span></a>1. Install the package</h3>
+<a id="1-install-the-package" class="anchor" href="#1-install-the-package" aria-hidden="true"><span class="octicon octicon-link"></span></a>1. Install the package</h3>
 
-<p><strong>With the Package Control plugin</strong><br>
+<p><strong>With the Package Control plugin</strong>
 The easiest way to install <strong>Browser Refresh</strong> is through Package Control, which can be found at <a href="http://wbond.net/sublime_packages/package_control">http://wbond.net/sublime_packages/package_control</a>.</p>
 
 <pre><code>Using Package Manager search for "Browser Refresh"
 </code></pre>
 
-<p><strong>Without Git</strong><br>
+<p><strong>Without Git</strong>
 Download the latest source from GitHub and copy the BrowserRefresh folder to your Sublime Text "Packages" directory.</p>
 
-<p><strong>With Git</strong><br>
+<p><strong>With Git</strong>
 Clone the repository in your Sublime Text "Packages" directory:</p>
 
 <pre><code>git clone https://github.com/gcollazo/BrowserRefresh-Sublime.git "Browser Refresh"
 </code></pre>
 
 <h4>
-<a name="11-on-linux" class="anchor" href="#11-on-linux"><span class="octicon octicon-link"></span></a>1.1 On Linux</h4>
+<a id="11-on-linux" class="anchor" href="#11-on-linux" aria-hidden="true"><span class="octicon octicon-link"></span></a>1.1 On Linux</h4>
 
 <p>Install xdotool:</p>
 
@@ -59,81 +60,136 @@ Clone the repository in your Sublime Text "Packages" directory:</p>
 </code></pre>
 
 <h3>
-<a name="2-configure-key-bindings" class="anchor" href="#2-configure-key-bindings"><span class="octicon octicon-link"></span></a>2. Configure Key Bindings</h3>
+<a id="2-configure-key-bindings" class="anchor" href="#2-configure-key-bindings" aria-hidden="true"><span class="octicon octicon-link"></span></a>2. Configure Key Bindings</h3>
 
 <p>You need to add the following to your <code>Key Bindings - User</code>. Go to <code>Preferences &gt; Key Bindings - User</code> and add the following to that file and save. Without this step the plugin will not work.</p>
 
-<div class="highlight highlight-json"><pre><span class="p">[</span>
-    <span class="p">{</span>
-        <span class="nt">"keys"</span><span class="p">:</span> <span class="p">[</span><span class="s2">"command+shift+r"</span><span class="p">],</span> <span class="nt">"command"</span><span class="p">:</span> <span class="s2">"browser_refresh"</span><span class="p">,</span> <span class="nt">"args"</span><span class="p">:</span> <span class="p">{</span>
-            <span class="nt">"auto_save"</span><span class="p">:</span> <span class="kc">true</span><span class="p">,</span>
-            <span class="nt">"delay"</span><span class="p">:</span> <span class="mf">0.5</span><span class="p">,</span>
-            <span class="nt">"activate_browser"</span><span class="p">:</span> <span class="kc">true</span><span class="p">,</span>
-            <span class="nt">"browser_name"</span> <span class="p">:</span> <span class="s2">"all"</span>
-        <span class="p">}</span>
-    <span class="p">}</span>
-<span class="p">]</span>
-</pre></div>
+<div class="highlight highlight-json"><pre>[
+    {
+        <span class="pl-s"><span class="pl-pds">"</span>keys<span class="pl-pds">"</span></span>: [<span class="pl-s"><span class="pl-pds">"</span>command+shift+r<span class="pl-pds">"</span></span>], <span class="pl-s"><span class="pl-pds">"</span>command<span class="pl-pds">"</span></span>: <span class="pl-s"><span class="pl-pds">"</span>browser_refresh<span class="pl-pds">"</span></span>, <span class="pl-s"><span class="pl-pds">"</span>args<span class="pl-pds">"</span></span>: {
+            <span class="pl-s"><span class="pl-pds">"</span>auto_save<span class="pl-pds">"</span></span>: <span class="pl-c1">true</span>,
+            <span class="pl-s"><span class="pl-pds">"</span>delay<span class="pl-pds">"</span></span>: <span class="pl-c1">0.5</span>,
+            <span class="pl-s"><span class="pl-pds">"</span>activate<span class="pl-pds">"</span></span>: <span class="pl-c1">true</span>,
+            <span class="pl-s"><span class="pl-pds">"</span>browsers<span class="pl-pds">"</span></span> : [<span class="pl-s"><span class="pl-pds">"</span>chrome<span class="pl-pds">"</span></span>]
+        }
+    }
+]</pre></div>
 
-<p><strong>auto_save</strong><br>
-If set to <code>true</code> you current file in Sublime Text will be save before refreshing the browser window.</p>
+<p><strong>auto_save</strong>
+If set to <code>true</code> you current file in Sublime Text will be saved before refreshing the browser window.</p>
 
-<p><strong>delay</strong><br>
-Adds a delay (in seconds) before triggering the refresh. Seems to be useful if you are using a CSS or JavaScript pre-processor. The default is 0.0 seconds. </p>
+<p><strong>delay</strong>
+Adds a delay (in seconds) before triggering the refresh. Seems to be useful if you are using a CSS or JavaScript pre-processor. The default is 0.0 seconds.</p>
 
-<p><strong>activate_browser</strong><br>
+<p><strong>activate</strong>
 If set to <code>true</code> when you press the keys it will bring the browser to the foreground. <strong>Note:</strong> On Windows this setting is always <code>true</code>.</p>
 
-<p><strong>browser_name</strong><br>
-Specify which browser to use. The default is <code>all</code> which will try to refresh all running browser on your system. You can change to be more specific: <code>Google Chrome</code>, <code>Google Chrome Canary</code>, <code>Safari</code>, <code>WebKit</code>, <code>Firefox</code>, <code>Opera</code>, <code>IE</code>, <code>Iron</code>, <code>Yandex</code>.</p>
+<p><strong>browsers</strong>
+Specify which browsers to refresh on command. The default is <code>chrome</code> which will try to refresh Google Chrome. You can change to be more specific using one of the following:</p>
 
-<p><strong>Note</strong>: on Windows use <code>Google Chrome</code> if you want to use Canary, because at the moment it's very hard to distinguish between them as both report themselves as Chrome. This also means that if you have both Chrome and Canary running, it will refresh the active tab on both browsers.</p>
+<table>
+<thead>
+<tr>
+<th>Browser</th>
+<th>Setting</th>
+<th>Platforms</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>Google Chrome</td>
+<td><code>chrome</code></td>
+<td>Mac, Win, Linux</td>
+</tr>
+<tr>
+<td>Google Chrome Canary</td>
+<td><code>canary</code></td>
+<td>Mac, Win</td>
+</tr>
+<tr>
+<td>Safari</td>
+<td><code>safari</code></td>
+<td>Mac, Win</td>
+</tr>
+<tr>
+<td>WebKit</td>
+<td><code>webkit</code></td>
+<td>Mac</td>
+</tr>
+<tr>
+<td>Firefox</td>
+<td><code>firefox</code></td>
+<td>Mac, Win, Linux</td>
+</tr>
+<tr>
+<td>Firefox Developer Edition</td>
+<td><code>firefoxdev</code></td>
+<td>Mac</td>
+</tr>
+<tr>
+<td>Opera</td>
+<td><code>opera</code></td>
+<td>Mac, Win</td>
+</tr>
+<tr>
+<td>Internet Explorer</td>
+<td><code>ie</code></td>
+<td>Win</td>
+</tr>
+<tr>
+<td>SRWare Iron</td>
+<td><code>iron</code></td>
+<td>Win</td>
+</tr>
+<tr>
+<td>Yandex</td>
+<td><code>yandex</code></td>
+<td>Mac</td>
+</tr>
+<tr>
+<td>Pale Moon</td>
+<td><code>palemoon</code></td>
+<td>Win</td>
+</tr>
+</tbody>
+</table>
 
 <h2>
-<a name="supported-browsers" class="anchor" href="#supported-browsers"><span class="octicon octicon-link"></span></a>Supported Browsers</h2>
-
-<ul>
-<li>Google Chrome (Mac, Win, Linux)</li>
-<li>Google Chrome Canary (Mac, Win - see note above)</li>
-<li>Safari (Mac, Win)</li>
-<li>WebKit (Mac)</li>
-<li>Firefox (Mac, Win, Linux)</li>
-<li>Opera (Mac, Win)</li>
-<li>Internet Explorer (Win)</li>
-<li>SRWare Iron (Win)</li>
-<li>Yandex (Mac)</li>
-</ul><h2>
-<a name="contributions" class="anchor" href="#contributions"><span class="octicon octicon-link"></span></a>Contributions</h2>
+<a id="contributions" class="anchor" href="#contributions" aria-hidden="true"><span class="octicon octicon-link"></span></a>Contributions</h2>
 
 <p>If you have the time to make this plugin better feel free to fork and submit a pull request.</p>
 
 <h3>
-<a name="contributors" class="anchor" href="#contributors"><span class="octicon octicon-link"></span></a>Contributors</h3>
+<a id="contributors" class="anchor" href="#contributors" aria-hidden="true"><span class="octicon octicon-link"></span></a>Contributors</h3>
 
 <ul>
 <li><a href="https://github.com/enriquein">Enrique Ramirez (enriquein)</a></li>
 <li><a href="https://github.com/generalov">generalov</a></li>
 <li><a href="https://github.com/tomasvotruba">Tomáš Votruba (TomasVotruba)</a></li>
-</ul><h2>
-<a name="license" class="anchor" href="#license"><span class="octicon octicon-link"></span></a>License</h2>
+</ul>
 
-<p>All of Browser Refresh for Sublime Text 2 is licensed under the MIT license.</p>
+<h2>
+<a id="license" class="anchor" href="#license" aria-hidden="true"><span class="octicon octicon-link"></span></a>License</h2>
 
-<p>Copyright (c) 2012 - 2014 Giovanni Collazo</p>
+<p>All of Browser Refresh for Sublime Text is licensed under the MIT license.</p>
+
+<p>Copyright (c) 2012 - 2015 Giovanni Collazo</p>
 
 <p>Permission is hereby granted, free of charge, to any person obtaining a copy of this software and associated documentation files (the "Software"), to deal in the Software without restriction, including without limitation the rights to use, copy, modify, merge, publish, distribute, sublicense, and/or sell copies of the Software, and to permit persons to whom the Software is furnished to do so, subject to the following conditions:</p>
 
 <p>The above copyright notice and this permission notice shall be included in all copies or substantial portions of the Software.</p>
 
 <p>THE SOFTWARE IS PROVIDED "AS IS", WITHOUT WARRANTY OF ANY KIND, EXPRESS OR IMPLIED, INCLUDING BUT NOT LIMITED TO THE WARRANTIES OF MERCHANTABILITY, FITNESS FOR A PARTICULAR PURPOSE AND NONINFRINGEMENT. IN NO EVENT SHALL THE AUTHORS OR COPYRIGHT HOLDERS BE LIABLE FOR ANY CLAIM, DAMAGES OR OTHER LIABILITY, WHETHER IN AN ACTION OF CONTRACT, TORT OR OTHERWISE, ARISING FROM, OUT OF OR IN CONNECTION WITH THE SOFTWARE OR THE USE OR OTHER DEALINGS IN THE SOFTWARE.</p>
-      </section>
-    </div>
-    <footer>
-      <p>Project maintained by <a href="https://github.com/gcollazo">gcollazo</a></p>
-      <p>Hosted on GitHub Pages &mdash; Theme by <a href="https://github.com/orderedlist">orderedlist</a></p>
-    </footer>
-    <!--[if !IE]><script>fixScale(document);</script><![endif]-->
-              <script type="text/javascript">
+
+      <footer class="site-footer">
+        <span class="site-footer-owner"><a href="https://github.com/gcollazo/BrowserRefresh-Sublime">Browser Refresh</a> is maintained by <a href="https://github.com/gcollazo">gcollazo</a>.</span>
+
+        <span class="site-footer-credits">This page was generated by <a href="https://pages.github.com">GitHub Pages</a> using the <a href="https://github.com/jasonlong/cayman-theme">Cayman theme</a> by <a href="https://twitter.com/jasonlong">Jason Long</a>.</span>
+      </footer>
+
+    </section>
+
+            <script type="text/javascript">
             var gaJsHost = (("https:" == document.location.protocol) ? "https://ssl." : "http://www.");
             document.write(unescape("%3Cscript src='" + gaJsHost + "google-analytics.com/ga.js' type='text/javascript'%3E%3C/script%3E"));
           </script>
@@ -146,3 +202,4 @@ Specify which browser to use. The default is <code>all</code> which will try to 
 
   </body>
 </html>
+
