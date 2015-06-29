@@ -42,7 +42,7 @@ You need to add the following to your `Key Bindings - User`. Go to `Preferences 
             "auto_save": true,
             "delay": 0.5,
             "activate": true,
-            "browsers" : ["Google Chrome"]
+            "browsers" : ["chrome"]
         }
     }
 ]
