@@ -1,6 +1,11 @@
 # Browser Refresh for Sublime Text
 
-After installing this plugin you can hit `command + shift + r` on Mac OS X or `ctrl + shift + r` on Windows and Linux while using your favorite browser, the last active window will come to the foreground *(you can turn this off in Chrome, Canary, Safari, WebKit and Yandex on Mac)* and reload the active tab. If the current file is unsaved, it will be saved before the browser is activated and reloaded.
+This plugin adds a keyboard shortcut to Sublime Text that will refresh the browser of your choice. Optionally the plugin can "auto save" your current file and bring the desired browser to the foreground.
+
+The default keyboard shortcuts are:
+
+- **⌘ + Shift + R** (Mac)
+- **Ctrl + Shift + R** (Windows, Linux)
 
 ### 1. Install the package
 **With the Package Control plugin**
@@ -55,32 +60,19 @@ If set to `true` when you press the keys it will bring the browser to the foregr
 **browsers**
 Specify which browsers to refresh on command. The default is `chrome` which will try to refresh Google Chrome. You can change to be more specific using one of the following:
 
-| Browser                   | Setting      |
-|---------------------------|--------------|
-| Google Chrome             | `chrome`     |
-| Google Chrome Canary      | `canary`     |
-| Safari                    | `safari`     |
-| WebKit                    | `webkit`     |
-| Firefox                   | `firefox`    |
-| Firefox Developer Edition | `firefoxdev` |
-| Opera                     | `opera`      |
-| Internet Explorer         | `ie`         |
-| Iron                      | `iron`       |
-| Yandex                    | `yandex`     |
-| Pale Moon                 | `palemoon`   |
-
-## Supported Browsers
-- Google Chrome (Mac, Win, Linux)
-- Google Chrome Canary (Mac, Win - see note above)
-- Safari (Mac, Win)
-- WebKit (Mac)
-- Firefox (Mac, Win, Linux)
-- Firefox Developer Edition (Mac)
-- Opera (Mac, Win)
-- Internet Explorer (Win)
-- SRWare Iron (Win)
-- Yandex (Mac)
-- Pale Moon (Win)
+| Browser                   | Setting      | Platforms       |
+|---------------------------|--------------|-----------------|
+| Google Chrome             | `chrome`     | Mac, Win, Linux |
+| Google Chrome Canary      | `canary`     | Mac, Win        |
+| Safari                    | `safari`     | Mac, Win        |
+| WebKit                    | `webkit`     | Mac             |
+| Firefox                   | `firefox`    | Mac, Win, Linux |
+| Firefox Developer Edition | `firefoxdev` | Mac             |
+| Opera                     | `opera`      | Mac, Win        |
+| Internet Explorer         | `ie`         | Win             |
+| SRWare Iron               | `iron`       | Win             |
+| Yandex                    | `yandex`     | Mac             |
+| Pale Moon                 | `palemoon`   | Win             |
 
 ## Contributions
 If you have the time to make this plugin better feel free to fork and submit a pull request.
@@ -91,9 +83,9 @@ If you have the time to make this plugin better feel free to fork and submit a p
 * [Tomáš Votruba (TomasVotruba)](https://github.com/tomasvotruba)
 
 ## License
-All of Browser Refresh for Sublime Text 2 is licensed under the MIT license.
+All of Browser Refresh for Sublime Text is licensed under the MIT license.
 
-Copyright (c) 2012 - 2014 Giovanni Collazo
+Copyright (c) 2012 - 2015 Giovanni Collazo
 
 Permission is hereby granted, free of charge, to any person obtaining a copy of this software and associated documentation files (the "Software"), to deal in the Software without restriction, including without limitation the rights to use, copy, modify, merge, publish, distribute, sublicense, and/or sell copies of the Software, and to permit persons to whom the Software is furnished to do so, subject to the following conditions:
 
