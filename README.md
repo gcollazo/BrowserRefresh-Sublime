@@ -36,8 +36,8 @@ You need to add the following to your `Key Bindings - User`. Go to `Preferences 
         "keys": ["command+shift+r"], "command": "browser_refresh", "args": {
             "auto_save": true,
             "delay": 0.5,
-            "activate_browser": true,
-            "browser_name" : "all"
+            "activate": true,
+            "browsers" : ["Google Chrome"]
         }
     }
 ]
@@ -49,13 +49,25 @@ If set to `true` you current file in Sublime Text will be saved before refreshin
 **delay**
 Adds a delay (in seconds) before triggering the refresh. Seems to be useful if you are using a CSS or JavaScript pre-processor. The default is 0.0 seconds.
 
-**activate_browser**
+**activate**
 If set to `true` when you press the keys it will bring the browser to the foreground. **Note:** On Windows this setting is always `true`.
 
-**browser_name**
-Specify which browser to use. The default is `all` which will try to refresh all running browser on your system. You can change to be more specific: `Google Chrome`, `Google Chrome Canary`, `Safari`, `WebKit`, `Firefox`, `Firefox Developer Edition`, `Opera`, `IE`, `Iron`, `Yandex`, `Pale Moon`.
+**browsers**
+Specify which browsers to refresh on command. The default is `chrome` which will try to refresh Google Chrome. You can change to be more specific using one of the following:
 
-**Note**: on Windows use `Google Chrome` if you want to use Canary, because at the moment it's very hard to distinguish between them as both report themselves as Chrome. This also means that if you have both Chrome and Canary running, it will refresh the active tab on both browsers.
+| Browser                   | Setting      |
+|---------------------------|--------------|
+| Google Chrome             | `chrome`     |
+| Google Chrome Canary      | `canary`     |
+| Safari                    | `safari`     |
+| WebKit                    | `webkit`     |
+| Firefox                   | `firefox`    |
+| Firefox Developer Edition | `firefoxdev` |
+| Opera                     | `opera`      |
+| Internet Explorer         | `ie`         |
+| Iron                      | `iron`       |
+| Yandex                    | `yandex`     |
+| Pale Moon                 | `palemoon`   |
 
 ## Supported Browsers
 - Google Chrome (Mac, Win, Linux)

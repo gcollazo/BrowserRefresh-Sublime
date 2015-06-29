@@ -13,26 +13,26 @@ class LinuxBrowserRefresh:
 
     def iron(self):
         pass
-        #except NotImplemented("Iron support not implemented yet.")
+        # except NotImplemented("Iron support not implemented yet.")
 
     def safari(self):
         pass
-        #except NotImplemented("Safary support not implemented yet.")
+        # except NotImplemented("Safary support not implemented yet.")
 
     def safari64(self):
         pass
-        #except NotImplemented("Safari64 support not implemented yet.")
+        # except NotImplemented("Safari64 support not implemented yet.")
 
     def firefox(self):
         self.SendKeysToAllWindows('firefox', 'F5')
 
     def opera(self):
         pass
-        #except NotImplemented("Opera support not implemented yet.")
+        # except NotImplemented("Opera support not implemented yet.")
 
     def ie(self):
         pass
-        #except NotImplemented("IE support not implemented yet.")
+        # except NotImplemented("IE support not implemented yet.")
 
     def SendKeysToAllWindows(self, cls, key):
         "Sends the keystroke to all windows whose title matches the regex"

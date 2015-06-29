@@ -17,13 +17,13 @@ _pywinauto = os.path.join(__path__ + os.path.sep + 'win')
 if _pywinauto not in sys.path:
     sys.path.insert(0, _pywinauto)
 
-# Cache user operating system
-_os = platform.system()
-
 
 class BrowserRefreshCommand(sublime_plugin.TextCommand):
-    def run(self, args, activate_browser=True,
-            browser_name='all', auto_save=True, delay=None):
+    def run(self, args, activate=True,
+            browsers=['chrome'], auto_save=True, delay=None):
+
+        _os = platform.system()
+        print('Browser Refresh: "{}" {}'.format(_os, browsers))
 
         # Auto-save
         if auto_save and self.view and self.view.is_dirty():
@@ -32,15 +32,13 @@ class BrowserRefreshCommand(sublime_plugin.TextCommand):
         # Detect OS and import
         if _os == 'Darwin':
             from mac import MacBrowserRefresh
-            from mac.utils import running_browsers
-            print(running_browsers())
-            refresher = MacBrowserRefresh(activate_browser, running_browsers())
+            refresher = MacBrowserRefresh(activate)
         elif _os == 'Windows':
             from win import WinBrowserRefresh
-            refresher = WinBrowserRefresh(activate_browser)
+            refresher = WinBrowserRefresh(activate)
         elif _os == 'Linux':
             from linux import LinuxBrowserRefresh
-            refresher = LinuxBrowserRefresh(activate_browser)
+            refresher = LinuxBrowserRefresh(activate)
         else:
             sublime.error_message('Your operating system is not supported')
 
@@ -50,52 +48,35 @@ class BrowserRefreshCommand(sublime_plugin.TextCommand):
             time.sleep(delay)
 
         # Actually refresh browsers
-        if browser_name == 'Google Chrome':
+        if 'chrome' in browsers:
             refresher.chrome()
 
-        elif browser_name == 'Google Chrome Canary' and _os == 'Darwin':
+        if 'canary' in browsers and _os == 'Darwin':
             refresher.canary()
 
-        elif browser_name == 'yandex' and _os == 'Darwin':
+        if 'yandex' in browsers and _os == 'Darwin':
             refresher.yandex()
 
-        elif browser_name == 'Safari':
+        if 'safari' in browsers:
             refresher.safari()
 
-        elif browser_name == 'WebKit' and _os == 'Darwin':
+        if 'webkit' in browsers and _os == 'Darwin':
             refresher.webkit()
 
-        elif browser_name == 'Firefox':
+        if 'firefox' in browsers:
             refresher.firefox()
 
-        elif browser_name == 'Firefox Developer Edition' and _os == 'Darwin':
+        if 'firefoxdev' in browsers and _os == 'Darwin':
             refresher.firefox_dev()
 
-        elif browser_name == 'Opera':
+        if 'opera' in browsers:
             refresher.opera()
 
-        elif browser_name == 'IE' and _os == 'Windows':
+        if 'ie' in browsers and _os == 'Windows':
             refresher.ie()
 
-        elif browser_name == 'Iron' and _os == 'Windows':
+        if 'iron' in browsers and _os == 'Windows':
             refresher.iron()
 
-        elif browser_name == 'Pale Moon' and _os == 'Windows':
+        if 'palemoon' in browsers and _os == 'Windows':
             refresher.palemoon()
-
-        elif browser_name == 'all':
-            refresher.chrome()
-            refresher.safari()
-            refresher.firefox()
-            refresher.opera()
-
-            if _os == 'Darwin':
-                refresher.canary()
-                refresher.yandex()
-                refresher.webkit()
-                refresher.firefox_dev()
-
-            if _os == 'Windows':
-                refresher.ie()
-                refresher.iron()
-                refresher.palemoon()

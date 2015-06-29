@@ -2,13 +2,11 @@ from subprocess import call
 
 
 class MacBrowserRefresh:
-    def __init__(self, activate_browser, running_browsers):
+    def __init__(self, activate_browser):
         if activate_browser:
             self.activate = 'activate'
         else:
             self.activate = ''
-
-        self.browsers = running_browsers
 
         self._chrome_applescript = """
             tell application "{name}"
@@ -23,8 +21,7 @@ class MacBrowserRefresh:
         command = self._chrome_applescript.format(
             name=app_name, activate=self.activate)
 
-        if browser_name in self.browsers:
-            self._call_applescript(command)
+        self._call_applescript(command)
 
     def chrome(self):
         self._chrome("Google Chrome", "chrome")
@@ -45,8 +42,7 @@ class MacBrowserRefresh:
             end tell
             """.format(activate=self.activate)
 
-        if 'safari' in self.browsers:
-            self._call_applescript(command)
+        self._call_applescript(command)
 
     def webkit(self):
         command = """
@@ -58,8 +54,7 @@ class MacBrowserRefresh:
             end tell
             """.format(activate=self.activate)
 
-        if 'webkit' in self.browsers:
-            self._call_applescript(command)
+        self._call_applescript(command)
 
     def firefox(self):
         command = """
@@ -69,8 +64,7 @@ class MacBrowserRefresh:
             end tell
             """
 
-        if 'firefox' in self.browsers:
-            self._call_applescript(command)
+        self._call_applescript(command)
 
     def firefox_dev(self):
         command = """
@@ -80,8 +74,7 @@ class MacBrowserRefresh:
             end tell
             """
 
-        if 'firefox-dev' in self.browsers:
-            self._call_applescript(command)
+        self._call_applescript(command)
 
     def opera(self):
         command = """
@@ -91,8 +84,7 @@ class MacBrowserRefresh:
             end tell
             """
 
-        if 'opera' in self.browsers:
-            self._call_applescript(command)
+        self._call_applescript(command)
 
     def _call_applescript(self, command):
         call(['osascript', '-e', command])
