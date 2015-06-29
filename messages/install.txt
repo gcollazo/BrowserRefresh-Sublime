@@ -19,16 +19,19 @@ Thanks for installing Browser Refresh!
 
 * * Important * *
 To complete the installation make sure you add the necessary key bindings.
-Go to "Preferences  > Key Bindings - User" in the menu and add the following:
+Go to "Preferences" > "Package Settings" > "Browser Refresh" > "Key Bindings - User"
+in the menu and add the following:
  
-{
-    "keys": ["command+shift+r"], "command": "browser_refresh", "args": {
-        "auto_save": true,
-        "delay": 0.5,
-        "activate_browser": true,
-        "browser_name" : "all"
+[
+  {
+    "keys": ["super+shift+r"], "command": "browser_refresh", "args": {
+      "auto_save": true,
+      "delay": 0.0,
+      "activate": true,
+      "browsers" : ["chrome"]
     }
-}
+  }
+]
 
 For complete documentation please visit:
 https://github.com/gcollazo/BrowserRefresh-Sublime
