@@ -23,7 +23,6 @@ class BrowserRefreshCommand(sublime_plugin.TextCommand):
             browsers=['chrome'], auto_save=True, delay=None):
 
         _os = platform.system()
-        print('Browser Refresh: "{}" {}'.format(_os, browsers))
 
         # Auto-save
         if auto_save and self.view and self.view.is_dirty():
