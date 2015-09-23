@@ -29,7 +29,7 @@ git clone https://github.com/gcollazo/BrowserRefresh-Sublime.git "Browser Refres
 Install xdotool:
 
 ```
-sudo apt-get install xdotool
+sudo apt-get install xdotool wmctrl
 ```
 
 ### 2. Configure Key Bindings
@@ -64,15 +64,28 @@ Specify which browsers to refresh on command. The default is `chrome` which will
 |---------------------------|--------------|-----------------|
 | Google Chrome             | `chrome`     | Mac, Win, Linux |
 | Google Chrome Canary      | `canary`     | Mac, Win        |
+| Chromium                  | `chromium    | Linux           |
 | Safari                    | `safari`     | Mac, Win        |
 | WebKit                    | `webkit`     | Mac             |
 | Firefox                   | `firefox`    | Mac, Win, Linux |
 | Firefox Developer Edition | `firefoxdev` | Mac             |
-| Opera                     | `opera`      | Mac, Win        |
+| Firefox Nightly           | `nightly`    | Linux           |
+| Opera                     | `opera`      | Mac, Win, Linux |
 | Internet Explorer         | `ie`         | Win             |
 | SRWare Iron               | `iron`       | Win             |
 | Yandex                    | `yandex`     | Mac             |
-| Pale Moon                 | `palemoon`   | Win             |
+| Pale Moon                 | `palemoon`   | Win,Linux       |
+| Konqueror                 | `konqueror`  | Linux           |
+| Midori                    | `midori`     | Linux           |
+| Qupzilla                  | `qupzilla`   | Linux           |
+| Vivaldi                   | `vivaldi`    | Linux           |
+
+**Linux special**
+
+You can optionnally try to send any key on any window with a special browser argument
+**"browsers" : ["custom:opera,ctrl+F5"]**
+
+Keep in mind this is only for convenience purpose, it is absolutely not garranteed this method actually works
 
 ## Contributions
 If you have the time to make this plugin better feel free to fork and submit a pull request.

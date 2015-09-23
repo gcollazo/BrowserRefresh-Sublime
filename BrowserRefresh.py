@@ -50,6 +50,21 @@ class BrowserRefreshCommand(sublime_plugin.TextCommand):
         if 'chrome' in browsers:
             refresher.chrome()
 
+        if 'chromium' in browsers and _os == 'Linux':
+            refresher.chromium()
+
+        if 'konqueror' in browsers and _os == 'Linux':
+            refresher.konqueror()
+
+        if 'midori' in browsers and _os == 'Linux':
+            refresher.midori()
+
+        if 'qupzilla' in browsers and _os == 'Linux':
+            refresher.qupzilla()
+
+        if 'vivaldi' in browsers and _os == 'Linux':
+            refresher.vivaldi()
+
         if 'canary' in browsers and _os == 'Darwin':
             refresher.canary()
 
@@ -65,6 +80,9 @@ class BrowserRefreshCommand(sublime_plugin.TextCommand):
         if 'firefox' in browsers:
             refresher.firefox()
 
+        if 'nightly' in browsers and _os == 'Linux':
+            refresher.nightly()
+
         if 'firefoxdev' in browsers and _os == 'Darwin':
             refresher.firefox_dev()
 
@@ -77,5 +95,13 @@ class BrowserRefreshCommand(sublime_plugin.TextCommand):
         if 'iron' in browsers and _os == 'Windows':
             refresher.iron()
 
-        if 'palemoon' in browsers and _os == 'Windows':
+        if 'palemoon' in browsers and _os in ['Windows', 'Linux']:
             refresher.palemoon()
+
+        if _os == 'Linux':
+            for browser in browsers:
+                customWindow = browser.split(':')[1] if 'custom:' in browser else False
+                customCommand = customWindow.split(',')[1] if ',' in customWindow else False
+                customWindow = customWindow.split(',')[0] if ',' in customWindow else False
+                if customWindow:
+                    refresher.custom(customWindow, customCommand)
