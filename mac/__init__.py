@@ -68,7 +68,7 @@ class MacBrowserRefresh:
 
     def firefox_dev(self):
         command = """
-            tell application "FirefoxDeveloperEdition"
+            tell application "Firefox Developer Edition"
                 activate
                 tell application "System Events" to keystroke "r" using command down
             end tell
