@@ -79,3 +79,6 @@ class BrowserRefreshCommand(sublime_plugin.TextCommand):
 
         if 'palemoon' in browsers and _os == 'Windows':
             refresher.palemoon()
+        
+        if 'brave' in browsers and _os == 'Windows':
+            refresher.brave()
