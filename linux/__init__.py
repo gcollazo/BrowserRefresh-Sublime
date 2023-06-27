@@ -34,6 +34,10 @@ class LinuxBrowserRefresh:
         pass
         # except NotImplemented("IE support not implemented yet.")
 
+    def brave(self):
+        self.SendKeysToAllWindows('brave-browser', 'F5')
+        # except NotImplemented("brave support not implemented yet.")
+
     def SendKeysToAllWindows(self, cls, key):
         "Sends the keystroke to all windows whose title matches the regex"
 

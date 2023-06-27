@@ -86,5 +86,8 @@ class MacBrowserRefresh:
 
         self._call_applescript(command)
 
+    def brave(self):
+        self._chrome("Brave Browser", "brave")
+
     def _call_applescript(self, command):
         call(['osascript', '-e', command])
