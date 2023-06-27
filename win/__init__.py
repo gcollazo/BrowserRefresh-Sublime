@@ -69,6 +69,12 @@ class WinBrowserRefresh:
         except WindowNotFoundError:
             pass
 
+    def brave(self):
+        try:
+            self.SendKeysToAllWindows('.*Brave')
+        except WindowNotFoundError:
+            pass
+
     def SendKeysToAllWindows(self, title_regex):
         "Sends the keystroke to all windows whose title matches the regex"
 
